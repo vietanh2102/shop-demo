@@ -8,6 +8,7 @@ import Search from "../component/Search";
 
 const publicRoutes = [
     {path:'/', component: Shop},
+    {path:'/shop-demo/', component: Shop},
     {path:'/product/:id', component: Product},
     {path:'/ao-nam', component: Tops},
     {path:'/pay', component: Pay},

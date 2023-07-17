@@ -9,7 +9,7 @@ function Search() {
     useEffect(()=>{
         const getProduct = async () => {
             setLoading(true)
-            const res = await fetch(`http://localhost:3000/products?q=${searchValue}`);
+            const res = await fetch(`https://hpvggl-8080.csb.app/products?q=${searchValue}`);
             const data = await res.json();
             setProduct(data);
             setLoading(false)

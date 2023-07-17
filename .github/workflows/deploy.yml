@@ -40,7 +40,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Start
-        run: npm json-server --watch db.json
+        run: npm start
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

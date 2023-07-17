@@ -41,12 +41,18 @@ function CartProvider( { children } ) {
         if(cartItem.quatity < 2){
             removeItem(id)
         }
-
+        
     }
     //tang so luong san pham
     const increaseItem = (id) => {
-        const cartItem = cart.find(item => item.id === id)
-        addItem(id,cartItem)
+        // const cartItem = cart.find(item => item.id === id)
+        // addItem(id,cartItem)
+        const cartItem = cart.map( item =>{
+            if(item.id === id){
+                return {...item,quatity: item.quatity + 1}
+            }
+        })
+        setCart(cartItem)
     }
 // them san pham vao cart
     const addItem = ( id, products ) => {

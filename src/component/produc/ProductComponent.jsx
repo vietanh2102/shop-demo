@@ -7,7 +7,8 @@ function Product( { products } ) {
     const Show = () => {
         const { addItem } = useContext(CartContext)
         const { loading } = useContext(ProductContext)
-        const { id, image,price,title } = products;
+        const { id, image,title } = products;
+        const price = Number(products.price)
         return(
             <div className=" overflow-hidden h-auto w-full relative group">
             <div className=" flex justify-center items-center  h-auto">

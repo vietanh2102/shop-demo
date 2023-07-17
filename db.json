@@ -3,14 +3,14 @@
     {
       "id": 1,
       "title": "RIDING HORSE TEE - WHITE",
-      "price": "599000",
+      "price": 599000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/horse-tee-mt-compressed.jpg?v=1687242757413"
     },
     {
       "title": "RIDING HORSE TEE - BLACK",
-      "price": "299000",
+      "price": 299000,
       "category": "top",
       "detail": "POLO",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/horse-tee-ms-black-compressed.jpg?v=1687242802000",
@@ -18,7 +18,7 @@
     },
     {
       "title": "COMET TEE - BLACKCOMET TEE - BLACK",
-      "price": "395000",
+      "price": 395000,
       "category": "top",
       "detail": "POLO",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/mt-compressed.jpg?v=1684988764280",
@@ -26,7 +26,7 @@
     },
     {
       "title": "PUNK KID TEE - BLACKPUNK KID TEE - BLACK",
-      "price": "595000",
+      "price": 595000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/2-14-compressed.jpg?v=1684376893000",
@@ -34,7 +34,7 @@
     },
     {
       "title": "WAFFLE TEE - BLACKWAFFLE TEE - BLACK",
-      "price": "395000",
+      "price": 395000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/back-compressed.jpg?v=1684988466000",
@@ -42,7 +42,7 @@
     },
     {
       "title": "JOY TEE - WHITEJOY TEE - WHITE",
-      "price": "295000",
+      "price": 295000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/2-t.jpg?v=1684377007000",
@@ -50,7 +50,7 @@
     },
     {
       "title": "JOY TEE - WHITEJOY TEE - BLACK",
-      "price": "395000",
+      "price": 395000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/1-57-compressed.jpg?v=1684376963307",
@@ -58,7 +58,7 @@
     },
     {
       "title": "CARS TEE - BLACKCARS TEE - BLACK",
-      "price": "350000",
+      "price": 350000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/nowsg-product0793-compressed.jpg?v=1683787435313",
@@ -66,7 +66,7 @@
     },
     {
       "title": "EARTH TEE - WHITEEARTH TEE - WHITE",
-      "price": "350000",
+      "price": 350000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/nowsg-product0789.jpg?v=1683787374000",
@@ -74,7 +74,7 @@
     },
     {
       "title": "EARTH TEE - BLACKEARTH TEE - BLACK",
-      "price": "350000",
+      "price": 350000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/nowsg-product0794-compressed.jpg?v=1683787435000",
@@ -82,7 +82,7 @@
     },
     {
       "title": "FROZEN RIVER TEE - WHITEFROZEN RIVER TEE - WHITE\nTùy chọn\nXem nhanh\nFROZEN RIVER TEE - WHITE",
-      "price": "350000",
+      "price": 350000,
       "category": "top",
       "detail": "tee",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/nowsg-product0814-compressed.jpg?v=1683863006000",
@@ -90,7 +90,7 @@
     },
     {
       "title": "MESH LOGO SHORTS - CREAMMESH LOGO SHORTS - CREAM",
-      "price": "400000",
+      "price": 400000,
       "category": "bottoms",
       "detail": "short",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/printed-cream-front-compressed.jpg?v=1685689726173",
@@ -98,7 +98,7 @@
     },
     {
       "title": "MESH LOGO SHORTS - BLACK",
-      "price": "400000",
+      "price": 400000,
       "category": "bottoms",
       "detail": "short",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/1-57-compressed-1.jpg?v=1685588276627",
@@ -106,7 +106,7 @@
     },
     {
       "title": "WIDE FIT JEANS - BLUE",
-      "price": "580000",
+      "price": 580000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/wfjeans-blue-front-compressed.jpg?v=1684376404067",
@@ -114,7 +114,7 @@
     },
     {
       "title": "WIDE FIT JEANS - BLACK",
-      "price": "580000",
+      "price": 580000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/nowsg-product2551-compressed.jpg?v=1683787268960",
@@ -122,7 +122,7 @@
     },
     {
       "title": "NOWSG STRAIGHT SWEATPANTS - CREAM",
-      "price": "520000",
+      "price": 520000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/sweatpants-kem-1.jpg?v=1670638196943",
@@ -130,7 +130,7 @@
     },
     {
       "title": "NOWSAIGON SWEATSHORTS - BLACK",
-      "price": "350000",
+      "price": 350000,
       "category": "bottoms",
       "detail": "short",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/nowsaigon-sweatshorts-den-compressed.jpg?v=1673604639600",
@@ -138,7 +138,7 @@
     },
     {
       "title": "STRAIGHT RAW SWEATPANTS - BLACK",
-      "price": "545000",
+      "price": 545000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/1-f08470da-0bf5-4815-be87-69ab887e643a.jpg?v=1660635231600",
@@ -146,7 +146,7 @@
     },
     {
       "title": "JEANS CARGO PANTS",
-      "price": "595000",
+      "price": 595000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/wuntitled-4-02-5.jpg?v=1640935196933",
@@ -154,7 +154,7 @@
     },
     {
       "title": "CARGO SWEATPANTS",
-      "price": "295000",
+      "price": 295000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/2-8.jpg?v=1643173476057",
@@ -162,7 +162,7 @@
     },
     {
       "title": "TRACK PANTS - GREY",
-      "price": "495000",
+      "price": 495000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/track-pants-pq-compressed.jpg?v=1670638372593",
@@ -170,7 +170,7 @@
     },
     {
       "title": "STRAIGHT RAW SWEATPANTS - CREAM",
-      "price": "595000",
+      "price": 595000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/5-1001c118-9f0d-441c-be27-d7338e0edb93.jpg?v=1660635298353",
@@ -178,7 +178,7 @@
     },
     {
       "title": "STRAIGHT RAW SWEATPANTS - GREEN",
-      "price": "595000",
+      "price": 595000,
       "category": "bottoms",
       "detail": "long",
       "image": "https://bizweb.dktcdn.net/100/318/614/products/3-227437a1-7a20-402c-8a84-004a297a82ff.jpg?v=1660635229063",

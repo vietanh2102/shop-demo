@@ -29,7 +29,7 @@ function Pay() {
                 <div className=" h-[150px] border border-inherit my-[30px] lg:mx-[10px]">
                     <div className="flex items-center relative border border-inherit h-[50px]">
                         <div className="ml-[20px]">Tổng Tiền</div>
-                        <div className=" absolute right-[10px]">{totalCost}đ</div>
+                        <div className=" absolute right-[10px]">{Number(totalCost).toLocaleString()}đ</div>
                     </div>
                     <div className='flex justify-center py-[25px]'>
                         <button className="w-[150px] h-[50px]  border-solid bg-slate-800 text-white rounded-full hover:bg-white hover:text-black">Thanh Toán</button>

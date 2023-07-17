@@ -17,7 +17,7 @@ function CartItem({item}) {
                 <div className="ml-[5px]">
                     <Link to={`/product/${item.id}`}>
                         <h1 className=" hover:underline">{item.title}</h1>
-                        <h1 className=" hover:underline">{item.price}đ</h1>
+                        <h1 className=" hover:underline">{Number(item.price).toLocaleString()}đ</h1>
                     </Link>
                 </div>
             </div>
@@ -32,7 +32,7 @@ function CartItem({item}) {
                     </div>
                 </div>
             </div>
-            <div className=" col-span-3 py-[8px]">{item.quatity*item.price}đ</div>
+            <div className=" col-span-3 py-[8px]">{Number(item.quatity*item.price).toLocaleString()}đ</div>
             <div className="py-[8px]">
                 <button onClick={() => removeItem(item.id)}>
                     <FontAwesomeIcon icon={faTrashCan} />

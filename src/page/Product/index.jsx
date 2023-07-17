@@ -22,6 +22,7 @@ function Product() {
         }
         getProduct()
     },[])
+    const price = Number(product.price)
     const Show = () => {
         return(
         <div className="  mx-0 sm:mx-[30px] md:mx-[8rem] lg:mx-[10rem] py-[30px]">
@@ -33,7 +34,7 @@ function Product() {
                 {/* {detail} */}
                 <div className="text-center mx-auto md:mx-[20px]">
                     <div className=" ">{product.title}</div>
-                    <div className="">{product.price}đ</div>
+                    <div className="">{price.toLocaleString()}đ</div>
                     {/* {size} */}
                     <div className=" mt-[30px]  lg:flex">
                         <div className="flex">
@@ -47,23 +48,28 @@ function Product() {
                                 <button>Size L</button>
                             </div>
                         </div>
-                        <div className=" w-[85px] h-[35px] m-[10px] border border-[#333] rounded-[3px]  bg-white flex items-center justify-center">
+                        <div className=" w-[85px] h-[35px] m-[10px] border border-[#333] rounded-[3px]  bg-white flex items-center justify-center lg:mt-0">
                             <button>Size XL</button>
                         </div>
                     </div>
                     {/* {button} */}
-                    <div className="w-[full] h-[44px] mt-[30px] border border-[#333] rounded-[3px] bg-white flex justify-center items-center">
-                        <button onClick={()=> addItem(product.id,product)}>
+                    <div 
+                        className="w-[full] h-[44px] mt-[30px] border border-[#333] rounded-[3px] bg-white flex justify-center items-center cursor-pointer"
+                        onClick={()=> addItem(product.id,product)}
+                    >
+                        <button>
                             Thêm vào giỏ
                         </button>
                     </div>
-                    <div className="w-[full] h-[44px] mt-[5px] border border-black bg-[#333] rounded-[3px] text-white flex justify-center items-center">
-                        <Link to={'/pay'}>
-                            <button onClick={() => addItem(product.id,product)}>
-                                Mua ngay
-                            </button>
-                        </Link>
-                    </div>
+                    <Link to={'/pay'}>
+                        <div 
+                            className="w-[full] h-[44px] mt-[5px] border border-black bg-[#333] rounded-[3px] text-white flex justify-center items-center cursor-pointer"
+                        >
+                                <button>
+                                    Mua ngay
+                                </button>
+                        </div>
+                    </Link>
                     <div className="my-[30px]">
                         <h1 className=" font-bold text-left">Size chart:</h1>
                         <img src={size} alt="err" />

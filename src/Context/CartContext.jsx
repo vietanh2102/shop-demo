@@ -67,7 +67,7 @@ function CartProvider( { children } ) {
 
         //Nếu có item trong cart thì tăng quatity, nếu k có thì THÊM item vào cart
         if(cartItem){
-            const newCart = [...cart].map( (item) => {
+            const newCart = cart.map( (item) => {
                 if(item.id === id){
                     return {...item, quatity: cartItem.quatity +1 }
                 }else{
@@ -78,7 +78,7 @@ function CartProvider( { children } ) {
         } else {
             setCart([...cart,newProduct])
         }
-    }
+        }
     // render quanity
     useEffect(()=>{
         const amount = cart.reduce((accumulator,currentValue) => {

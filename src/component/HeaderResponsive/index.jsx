@@ -20,7 +20,7 @@ function HeaderResponsiv( {state}) {
         setSearchValue('')
     }
     return ( 
-        <div className=' basis-1/4 flex items-center order-3 lg:hidden px-[15px]'>
+        <div className=' basis-1/4 flex items-center order-3 lg:hidden px-[15px] overscroll-none'>
             <div className=' absolute right-[15px] z-10' onClick={() => setBar(!bar)}>
                 {bar ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faBars} />}
             </div>

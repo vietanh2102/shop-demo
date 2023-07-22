@@ -10,8 +10,12 @@ function Product() {
     const {id} = useParams()
     const [product,setProduct]=useState([])
     const [loading,setLoading] = useState(false)
-    
-    const {addItem} = useContext(CartContext)
+    const {addItem,cart} = useContext(CartContext)
+    const handleClick = (id,product) => {
+        if(cart === false){
+            addItem(id,product)
+        }
+    }
     useEffect(()=>{
         const getProduct = async () => {
             setLoading(true)
@@ -64,6 +68,7 @@ function Product() {
                     <Link to={'/pay'}>
                         <div 
                             className="w-[full] h-[44px] mt-[5px] border border-black bg-[#333] rounded-[3px] text-white flex justify-center items-center cursor-pointer"
+                            onClick={() => handleClick(product.id,product)}
                         >
                                 <button>
                                     Mua ngay

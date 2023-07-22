@@ -1,50 +1,70 @@
 import { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown,faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 import { ProductContext } from '../../Context/ProductContext';
 
 function FilterProduct() {
-    const {handleClick,type,setType,price,setPrice} = useContext(ProductContext)
+    const {priceArr,handleClick} = useContext(ProductContext)
+    const [filterTop,setFilterTop] =useState(false)
+    const [filterBottom,setFilterBottom] =useState(false)
+
 
     return ( 
-        <div className=" border-b-black border border-t-0 border-r-0  border-l-0  my-[50px] flex ">
-            <h1>Bộ Lọc:</h1>
+        <div className=" pb-[20px] ">
+            <h1 className=' font-bold text-[20px]'>Bộ Lọc:</h1>
             <div>
-                <div className=' flex items-center'>
-                    <h1>Loại</h1>
-                    <button onClick={()=> {setPrice(false),setType(!type)}} className='ml-[5px]'>
-                        {type ? <FontAwesomeIcon icon={faAngleUp} size='xs' /> : 
-                            <FontAwesomeIcon size='xs' icon={faAngleDown} />}
-                    </button>
-                </div>
-                { type &&
-                <div className='w-[150px] h-auto p-[10px] my-[10px] bg-white border absolute z-10'>
-                    <div className='text-center inline-block'>
-                        <button onClick={() => handleClick({detail:'POLO'})}>POLO</button>
-                        <br /><button onClick={() => handleClick({detail:'tee'})}>TEE</button>
-                        <br /><button>SHIRT</button>
-                        <br /><button>HOODIE</button>
+                <h1 className=' font-bold mb-[30px]'>Danh mục sản phẩm:</h1>
+                <Link><h1 className=' my-[5px]'>Sale</h1></Link>
+                <div className=' my-[5px]'>
+                    <div className='z-10 bg-white'>
+                        <button 
+                            onClick={() => setFilterTop(!filterTop)}
+                            className='flex items-center'
+                        >
+                            <h1 className='mr-[10px]'>Áo nam</h1>
+                            {filterTop ? <FontAwesomeIcon icon={faAngleUp} size='sm' />:<FontAwesomeIcon icon={faAngleDown} size='sm' />}
+                        </button>
+                    </div>
+                    <div className={filterTop ? "pl-[10px]" : " hidden"}>
+                        <Link to={"/ao-polo"}><h1>Áo Polo</h1></Link>
+                        <Link to={"/tee"}><h1>Tee</h1></Link>
+                        <Link to={"/hoodie"}><h1>Hoodie</h1></Link>
+                    </div>
+               </div>
+               {/* {Quan nam} */}
+                <div className=' my-[5px]'>
+                    <div>
+                        <button 
+                            onClick={() => setFilterBottom(!filterBottom)}
+                            className='flex items-center'
+                        >
+                            <h1 className='mr-[10px]'>Quần nam</h1>
+                            {filterBottom ? <FontAwesomeIcon icon={faAngleUp} size='sm' />:<FontAwesomeIcon icon={faAngleDown} size='sm' />}
+                        </button>
+                    </div>
+                    <div className={filterBottom ? "pl-[10px]" : " hidden"}>
+                        <Link to={"/quan-dai"}><h1>Quần dài</h1></Link>
+                        <Link to={"/quan-short"}><h1>Quần short</h1></Link>
                     </div>
                 </div>
-                }
+                <h1 className=' my-[5px]'>Hệ thống cửa Hàng</h1>
             </div>
             <div>
-                <div className=' flex items-center'>
-                    <h1>Gia</h1>
-                    <button onClick={()=> {setPrice(!price),setType(false)}} className='ml-[5px]'>
-                        {price ? <FontAwesomeIcon icon={faAngleUp} size='xs' /> : 
-                            <FontAwesomeIcon size='xs' icon={faAngleDown} />}
-                    </button>
-                </div>
-                { price &&
-                <div className='w-[150px] h-auto p-[10px] my-[10px] bg-white border absolute z-10'>
-                    <div className='text-center inline-block'>
-                        <button onClick={() => handleClick({priceFilter:'300000'})}>Duoi 300000</button>
-                        <br /><button onClick={() => handleClick({priceFilter:'400000'})}>Duoi 400000</button>
-                        <br /><button onClick={() => handleClick({priceFilter:'500000'})}>Duoi 500000</button>
-                    </div>
-                </div>
-                }
+                <h1 className=' font-bold my-[30px]'>Khoảng giá:</h1>
+                    {priceArr.map( item => (
+                        <div key={item.id}>
+                        <input 
+                            type='radio' 
+                            onClick={() => handleClick(item)}
+                        />
+                            <label> {item.title}</label>
+                        </div>
+                    ))}
+            </div>
+            <div>
+                <h1 className=' font-bold my-[30px]'>Màu sắc</h1>
+
             </div>
         </div>
      );

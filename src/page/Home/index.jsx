@@ -11,6 +11,7 @@ import { ProductContext } from "../../Context/ProductContext";
 import Product from "../../component/produc/ProductComponent";
 import Loading from "../../component/Loading";
 import { Link } from "react-router-dom";
+import LoadingHome from "../../component/Loading/LoadingHome";
 function Shop() {
     const { products,loading } = useContext(ProductContext)
     const tops = products.filter(item => item.category === "top")
@@ -31,7 +32,7 @@ function Shop() {
                 <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[20px]">
                     {
                         loading ? 
-                        <Loading /> :
+                        <LoadingHome /> :
                         tops.map((item) => {
                             return (
                                 <Product key={item.id} products={item} />
@@ -67,7 +68,7 @@ function Shop() {
                 <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[20px] mx-auto">
                     {
                         loading ? 
-                        <Loading /> :
+                        <LoadingHome /> :
                         bottoms.map((item) => {
                             return (
                                 <Product key={item.id} products={item} />

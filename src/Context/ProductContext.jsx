@@ -6,10 +6,6 @@ function ProductProvider( { children }) {
     // state Product
     const [products,setProducts] = useState([])
     const [loading,setLoading] = useState(true)
-    //Filter
-    const [type,setType] = useState(false)
-    const [price,setPrice] = useState(false)
-    const [filterProduct,setFilterProduct] = useState(products)
     // Fetch product
     useEffect(()=>{
         const getProduct = async () => {
@@ -21,26 +17,48 @@ function ProductProvider( { children }) {
         }
         getProduct()
     },[])
-    const handleClick = ({detail,priceFilter}) =>{
-        const top = products.filter(item => item.category === 'top')
-        if(detail){
-            const filter = top.filter( item => item.detail === detail)
-            setFilterProduct(filter)
-            setPrice(false)
+    //filterPrice
+        const priceArr = [ 
+            {
+                id: 1,
+                title: 'Dưới 200.000',
+                value:200000
+            },
+            {
+                id: 2,
+                title: 'Dưới 500.000',
+                value:500000
+            },
+            {
+                id: 3,
+                title: 'Dưới 1.000.000',
+                value:1000000
+            },
+            {
+                id: 4,
+                title: 'Dưới 2.000.000',
+                value:2000000
+            }
+        ]
+        const [showFilter,setShowFilter] = useState(false)
+        const [filterProduct,setFilterProduct] =  useState(products)
+        const handleClick = (item) => {
+            setShowFilter(true)
+            const price = item.value
+            const filterPrice = products.filter( item => item.price < price)
+            if(filterPrice){
+                setFilterProduct(filterPrice)
+            }else{
+                setFilterProduct([])
+            }
         }
-        if(price){
-            const filter = top.filter(item => item.price < priceFilter)
-            setFilterProduct(filter)
-            setType(false)
-        }
-    }
     return ( 
         <ProductContext.Provider value={{products,
             loading,
-            handleClick,
-            filterProduct,
-            type,setType,
-            price,setPrice}}>
+            handleClick,priceArr,
+            filterProduct,setFilterProduct,
+            showFilter
+            }}>
             {children}
         </ProductContext.Provider>
      );

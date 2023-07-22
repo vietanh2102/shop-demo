@@ -41,7 +41,7 @@ function ProductProvider( { children }) {
             }
         ]
         const [showFilter,setShowFilter] = useState(false)
-        const [filterProduct,setFilterProduct] =  useState(products)
+        const [filterProduct,setFilterProduct] =  useState([])
         const handleClick = (item) => {
             setShowFilter(true)
             const price = item.value
@@ -57,7 +57,7 @@ function ProductProvider( { children }) {
             loading,
             handleClick,priceArr,
             filterProduct,setFilterProduct,
-            showFilter
+            showFilter,setShowFilter
             }}>
             {children}
         </ProductContext.Provider>

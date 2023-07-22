@@ -57,6 +57,7 @@ function FilterProduct() {
                         <input 
                             type='radio' 
                             onClick={() => handleClick(item)}
+                            name='price'
                         />
                             <label> {item.title}</label>
                         </div>

@@ -17,6 +17,7 @@ function Shop() {
     const tops = products.filter(item => item.category === "top")
     const bottoms = products .filter(item => item.category === "bottoms")
     return (
+        loading ? <LoadingHome /> :
         <section>
             <div>
                 <img src={img1} alt="erro"/>
@@ -31,8 +32,6 @@ function Shop() {
                 </div>
                 <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[20px]">
                     {
-                        loading ? 
-                        <LoadingHome /> :
                         tops.map((item) => {
                             return (
                                 <Product key={item.id} products={item} />
@@ -67,8 +66,6 @@ function Shop() {
                 </div>
                 <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[20px] mx-auto">
                     {
-                        loading ? 
-                        <LoadingHome /> :
                         bottoms.map((item) => {
                             return (
                                 <Product key={item.id} products={item} />

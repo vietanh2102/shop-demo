@@ -11,12 +11,12 @@ function FilterProduct() {
 
 
     return ( 
-        <div className=" pb-[20px] ">
-            <h1 className=' font-bold text-[20px]'>Bộ Lọc:</h1>
-            <div>
-                <h1 className=' font-bold mb-[30px]'>Danh mục sản phẩm:</h1>
-                <Link><h1 className=' my-[5px]'>Sale</h1></Link>
-                <div className=' my-[5px]'>
+        <div className=" p-[20px] font-bold ml-[20px] lg:ml-0  ">
+            <h1 className=' font-bold text-[20px] hidden lg:inline-block'>Bộ Lọc:</h1>
+            <div className=' hidden lg:inline-block'>
+                <h1 className=' font-bold'>Danh mục sản phẩm:</h1>
+                <Link><h1 className=' my-[5px] ml-[10px]'>Sale</h1></Link>
+                <div className=' my-[5px] ml-[10px]'>
                     <div className='z-10 bg-white'>
                         <button 
                             onClick={() => setFilterTop(!filterTop)}
@@ -33,7 +33,7 @@ function FilterProduct() {
                     </div>
                </div>
                {/* {Quan nam} */}
-                <div className=' my-[5px]'>
+                <div className=' my-[5px] ml-[10px]'>
                     <div>
                         <button 
                             onClick={() => setFilterBottom(!filterBottom)}
@@ -48,12 +48,12 @@ function FilterProduct() {
                         <Link to={"/quan-short"}><h1>Quần short</h1></Link>
                     </div>
                 </div>
-                <h1 className=' my-[5px]'>Hệ thống cửa Hàng</h1>
+                <h1 className=' my-[5px] ml-[10px]'>Hệ thống cửa Hàng</h1>
             </div>
             <div>
-                <h1 className=' font-bold my-[30px]'>Khoảng giá:</h1>
+                <h1 className=' font-bold'>Khoảng giá:</h1>
                     {priceArr.map( item => (
-                        <div key={item.id}>
+                        <div key={item.id} className='ml-[10px]'>
                         <input 
                             type='radio' 
                             onClick={() => handleClick(item)}

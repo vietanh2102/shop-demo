@@ -6,7 +6,7 @@ import logo from '../../assets/logo.webp'
 import cart from '../../assets/cart.svg'
 import user from '../../assets/user.svg'
 import Input from '../Input';
-import HeaderResponsiv from '../HeaderResponsive';
+import HeaderResponsive from '../Responsive/HeaderResponsive';
 
 
 
@@ -21,7 +21,7 @@ function Header() {
             </div>
 
                 {/* {responsive} */}
-            <HeaderResponsiv state={{bar,setBar}} />
+            <HeaderResponsive state={{bar,setBar}} />
 
                 {/* SideBar */}
             <div className=' hidden lg:flex justify-center items-center h-full basis-2/4 order-2'>

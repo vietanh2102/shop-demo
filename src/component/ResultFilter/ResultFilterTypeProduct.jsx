@@ -1,13 +1,10 @@
 import { useContext } from "react";
 import { ProductContext } from "../../Context/ProductContext";
 import Product from "../produc/ProductComponent";
-import { Link } from "react-router-dom";
 
-function ResultFilter({category}) {
+function ResultFilterTypeProduct({detail}) {
     const {filterProduct} = useContext(ProductContext)
-    console.log(typeof category);
-    const filter = filterProduct.filter(item => item.category === category)
-    console.log(filter);
+    const filter =filterProduct.filter(item => item.detail === detail) 
     return ( 
         <div>
             {filter.length === 0 ? 
@@ -22,4 +19,4 @@ function ResultFilter({category}) {
      );
 }
 
-export default ResultFilter;
+export default ResultFilterTypeProduct;

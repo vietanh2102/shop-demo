@@ -27,7 +27,8 @@ export default {
         'de':'#dedede'
       },
       colors: {
-        'bar':'rgba(0, 0, 0, 0.8);'
+        'bar':'rgba(0, 0, 0, 0.8);',
+        'text': "#333333"
       }
     },
   },

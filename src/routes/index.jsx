@@ -9,23 +9,23 @@ import Tee from "../page/ClothesStyle/Tee";
 import LongBottoms from "../page/ClothesStyle/LongBottoms";
 import Polo from "../page/ClothesStyle/Polo";
 import Hoodie from "../page/ClothesStyle/Hoodie";
-import ShortBottom from "../page/ClothesStyle/ShortBottoms";
+import ShortBottoms from "../page/ClothesStyle/ShortBottoms";
 
 const publicRoutes = [
     // header
     {path:'/', component: Shop},
     {path:'/shop-demo/', component: Shop},
-    {path:'/ao-nam', component: Tops},
-    {path:'/quan-nam', component: Bottoms},
+    {path:'/ao-nam', component: Tops,},
+    {path:'/quan-nam', component: Bottoms,},
     {path:'/pay', component: Pay},
     //ProductDetail
     {path:'/product/:id', component: Product},
     //StyleProduct
-    {path:'/ao-polo', component: Polo},
-    {path:'/tee', component: Tee},
-    {path:'/hoodie', component:Hoodie },
-    {path:'/quan-dai', component: LongBottoms},
-    {path:'/quan-short', component:ShortBottom },
+    {path:'/ao-polo', component: Polo,},
+    {path:'/tee', component: Tee,},
+    {path:'/hoodie', component:Hoodie, },
+    {path:'/quan-dai', component: LongBottoms,},
+    {path:'/quan-short', component:ShortBottoms, },
     //Search
     {path:'/tim-kiem/:searchValue', component: Search},
     {path:'/tim-kiem/', component: Search}

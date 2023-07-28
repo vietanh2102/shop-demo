@@ -5,8 +5,6 @@ import { ProductContext } from "../../Context/ProductContext";
 
 function Product( { products } ) {
     const Show = () => {
-        const { addItem } = useContext(CartContext)
-        const { loading } = useContext(ProductContext)
         const { id, image,title } = products;
         const price = Number(products.price)
         return(

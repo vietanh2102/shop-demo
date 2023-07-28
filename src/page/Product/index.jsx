@@ -3,10 +3,20 @@ import React,{useContext, useEffect,useState} from "react";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { CartContext } from "../../Context/CartContext";
-import size from "../../assets/img/size.webp"
+import sizeImg from "../../assets/img/size.webp"
 import { Link } from "react-router-dom";
 
 function Product() {
+    const a = [
+        {
+            a:1,
+            b:2
+        },
+        {
+            a:3,
+            b:4
+        }
+    ]
     const {id} = useParams()
     const [product,setProduct]=useState([])
     const [loading,setLoading] = useState(false)
@@ -27,6 +37,7 @@ function Product() {
         getProduct()
     },[])
     const price = Number(product.price)
+    const size = product.size
     const Show = () => {
         return(
         <div className="  mx-0 sm:mx-[30px] md:mx-[8rem] lg:mx-[10rem] py-[30px]">
@@ -40,20 +51,14 @@ function Product() {
                     <div className=" ">{product.title}</div>
                     <div className="">{price.toLocaleString()}đ</div>
                     {/* {size} */}
-                    <div className=" mt-[30px]  lg:flex">
+                    <div className=" mt-[30px]">
+                        <h1 className=" font-bold text-left mb-[5px]">Size:</h1>
                         <div className="flex">
-                            <div className="w-[85px] h-[35px] ml-[10px] border border-[#333] rounded-[3px]  bg-white flex items-center justify-center">
-                                <button>Size S</button>
-                            </div>
-                            <div className=" w-[85px] h-[35px] ml-[10px] border border-[#333] rounded-[3px]  bg-white flex items-center justify-center">
-                                <button>Size M</button>
-                            </div>
-                            <div className=" w-[85px] h-[35px] ml-[10px] border border-[#333] rounded-[3px]  bg-white flex items-center justify-center">
-                                <button>Size L</button>
-                            </div>
-                        </div>
-                        <div className=" w-[85px] h-[35px] m-[10px] border border-[#333] rounded-[3px]  bg-white flex items-center justify-center lg:mt-0">
-                            <button>Size XL</button>
+                            {size && size.map(item => (
+                                <div key={item} className="w-[80px] md:w-[85px] h-[35px] ml-[10px] border border-[#333] rounded-[3px]  bg-white flex items-center justify-center">
+                                <button>{item}</button>
+                                </div>
+                            ))}
                         </div>
                     </div>
                     {/* {button} */}
@@ -77,7 +82,7 @@ function Product() {
                     </Link>
                     <div className="my-[30px]">
                         <h1 className=" font-bold text-left">Size chart:</h1>
-                        <img src={size} alt="err" />
+                        <img src={sizeImg} alt="err" />
                     </div>
                 </div>
             </div>

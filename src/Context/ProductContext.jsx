@@ -20,6 +20,11 @@ function ProductProvider( { children }) {
     //filterPrice
         const priceArr = [ 
             {
+                id:0,
+                title:"---",
+                value: 999999999
+            },
+            {
                 id: 1,
                 title: 'Dưới 200.000',
                 value:200000
@@ -42,22 +47,26 @@ function ProductProvider( { children }) {
         ]
         const [showFilter,setShowFilter] = useState(false)
         const [filterProduct,setFilterProduct] =  useState([])
-        const handleClick = (item) => {
+        const handleClick = (valuePrice) => {
             setShowFilter(true)
-            const price = item.value
-            const filterPrice = products.filter( item => item.price < price)
-            if(filterPrice){
-                setFilterProduct(filterPrice)
+            if(valuePrice){
+                const filterProduct = products.filter( item => {
+                    if(item.price < valuePrice){
+                        return true
+                    }
+                })
+                setFilterProduct(filterProduct)
             }else{
-                setFilterProduct([])
+                setShowFilter(false)
             }
+
         }
     return ( 
         <ProductContext.Provider value={{products,
             loading,
             handleClick,priceArr,
             filterProduct,setFilterProduct,
-            showFilter,setShowFilter
+            showFilter,setShowFilter,
             }}>
             {children}
         </ProductContext.Provider>

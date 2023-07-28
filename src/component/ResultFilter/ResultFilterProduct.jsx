@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function ResultFilter({category}) {
     const {filterProduct} = useContext(ProductContext)
     const filter =filterProduct.filter(item => item.category === category) 
-    console.log(filter);
     return ( 
         <div>
             {filter.length === 0 ? 

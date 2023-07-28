@@ -9,7 +9,6 @@ function FilterProduct() {
     const [filterTop,setFilterTop] =useState(false)
     const [filterBottom,setFilterBottom] =useState(false)
 
-
     return ( 
         <div className=" p-[20px] font-bold ml-[20px] lg:ml-0  ">
             <h1 className=' font-bold text-[20px] hidden lg:inline-block'>Bộ Lọc:</h1>
@@ -51,21 +50,15 @@ function FilterProduct() {
                 <h1 className=' my-[5px] ml-[10px]'>Hệ thống cửa Hàng</h1>
             </div>
             <div>
-                <h1 className=' font-bold'>Khoảng giá:</h1>
-                    {priceArr.map( item => (
-                        <div key={item.id} className='ml-[10px]'>
-                        <input 
-                            type='radio' 
-                            onClick={() => handleClick(item)}
-                            name='price'
-                        />
-                            <label> {item.title}</label>
-                        </div>
+                <label htmlFor=''>Giá:</label>
+                <select 
+                    onChange={e => handleClick(e.target.value)}
+                    className='ml-[5px] border text-center p-[5px] outline-none'
+                >
+                    {priceArr.map(item => (
+                        <option key={item.id} value={item.value}>{item.title}</option>
                     ))}
-            </div>
-            <div>
-                <h1 className=' font-bold my-[30px]'>Màu sắc</h1>
-
+                </select>
             </div>
         </div>
      );

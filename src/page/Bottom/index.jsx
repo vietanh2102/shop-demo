@@ -45,7 +45,7 @@ function Bottoms() {
                     <FilterResponsive state={{show,setShow,handleClick}} />
                     {/* {showproducts} */}
                         {showFilter ? <ResultFilter category="bottoms" /> :
-                            <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[30px] my-[15px] ">
+                            <div className=" w-full grid grid-cols-2 md:grid-cols-4  xl:grid-cols-4 gap-[30px] my-[15px] ">
                                 {menClothingBottoms.map( item => {
                                     return(
                                         <Product key={item.id} products={item} />

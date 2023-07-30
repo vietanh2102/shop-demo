@@ -29,6 +29,9 @@ export default {
       colors: {
         'bar':'rgba(0, 0, 0, 0.8);',
         'text': "#333333"
+      },
+      fontFamily: {
+        "roboto":['Roboto', 'sans-serif']
       }
     },
   },

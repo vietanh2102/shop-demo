@@ -51,10 +51,11 @@ function ProductProvider( { children }) {
             setShowFilter(true)
             if(valuePrice){
                 const filterProduct = products.filter( item => {
-                    if(item.price < valuePrice){
-                        return true
+                        if(item.price < valuePrice){
+                            return true
+                        }
                     }
-                })
+                )
                 setFilterProduct(filterProduct)
             }else{
                 setShowFilter(false)

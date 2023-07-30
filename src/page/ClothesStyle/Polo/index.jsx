@@ -43,7 +43,7 @@ function Polo() {
                     <FilterResponsive state={{show,setShow,handleClick}} />
                     {/* {showProduct} */}
                     {showFilter ? <ResultFilterTypeProduct detail='POLO' /> : 
-                        <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[30px] my-[15px]">
+                        <div className=" w-full grid grid-cols-2 md:grid-cols-4  xl:grid-cols-4 gap-[30px] my-[15px]">
                             {
                                 polo.map(item => (
                                     <Product key={item.id} products={item} />

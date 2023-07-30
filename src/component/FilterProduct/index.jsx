@@ -3,11 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown,faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 import { ProductContext } from '../../Context/ProductContext';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 function FilterProduct() {
     const {priceArr,handleClick} = useContext(ProductContext)
     const [filterTop,setFilterTop] =useState(false)
     const [filterBottom,setFilterBottom] =useState(false)
+    const [priceShow,setPriceShow] = useState('')
+    let price
+    const handleChange = e =>{
+        setPriceShow(e.target.value)
+        price = e.target.value
+        handleClick(price)
+    }
 
     return ( 
         <div className=" p-[20px] font-bold ml-[20px] lg:ml-0  ">
@@ -50,15 +58,24 @@ function FilterProduct() {
                 <h1 className=' my-[5px] ml-[10px]'>Hệ thống cửa Hàng</h1>
             </div>
             <div>
-                <label htmlFor=''>Giá:</label>
-                <select 
-                    onChange={e => handleClick(e.target.value)}
-                    className='ml-[5px] border text-center p-[5px] outline-none'
-                >
-                    {priceArr.map(item => (
-                        <option key={item.id} value={item.value}>{item.title}</option>
-                    ))}
-                </select>
+                <h1 className='mb-[5px]'>Lọc theo giá sản phẩm:</h1>
+                <FormControl sx={{minWidth:120}} size='small'>
+                    <InputLabel>Giá</InputLabel>
+                        <Select
+                            label="Price"
+                            value={priceShow}
+                            onChange={handleChange}
+                            autoWidth
+                        >
+                            <MenuItem value="">
+                                <em>---</em>
+                            </MenuItem>
+                            <MenuItem value={200000}>Dưới 200.000</MenuItem>
+                            <MenuItem value={500000}>Dưới 500.000</MenuItem>
+                            <MenuItem value={1000000}>Dưới 1.000.000</MenuItem>
+                            <MenuItem value={2000000}>Dưới 2.000.000</MenuItem>
+                        </Select>
+                </FormControl>
             </div>
         </div>
      );

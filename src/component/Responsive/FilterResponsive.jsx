@@ -3,19 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faXmark} from '@fortawesome/free-solid-svg-icons'
 import FilterProduct from "../FilterProduct";
 import { ProductContext } from "../../Context/ProductContext";
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 
 function FilterResponsive( {state} ) {
     const {show,setshow} = state
     const handleClickShow =state.handleClick
-    const {priceArr,handleClick} = useContext(ProductContext)
-    let valuePrice = undefined
+    const {handleClick} = useContext(ProductContext)
+    const [priceShow,setPriceShow] = useState('')
     const handleClickApply = () => {
-        handleClick(valuePrice)
+        handleClick(priceShow)
         handleClickShow()
     }
+    const handleChange = e =>{
+        setPriceShow(e.target.value)
+    }
     return ( 
-        <div>
+        <div className="overflow-y-hidden">
             {/* {conten} */}
             <div className={show ? 'w-full h-full bg-white fixed left-0 top-0 ease-in-out duration-500 z-10' : 'fixed left-[-100%]'}>
                 {/* {header} */}
@@ -27,17 +31,37 @@ function FilterResponsive( {state} ) {
                     <FontAwesomeIcon icon={faXmark} size="xl" className=" absolute right-12" />
                 </div>
                 {/* {filter} */}
-                <div>
+                <div className="flex p-[20px] items-center">
+                    <h1 className='mb-[5px] mr-[10px]'>Lọc theo giá:</h1>
+                    <FormControl sx={{minWidth:120}} size='small'>
+                        <InputLabel>Giá</InputLabel>
+                            <Select
+                                label="Price"
+                                value={priceShow}
+                                onChange={handleChange}
+                                autoWidth
+                            >
+                                <MenuItem value="">
+                                    <em>---</em>
+                                </MenuItem>
+                                <MenuItem value={200000}>Dưới 200.000</MenuItem>
+                                <MenuItem value={500000}>Dưới 500.000</MenuItem>
+                                <MenuItem value={1000000}>Dưới 1.000.000</MenuItem>
+                                <MenuItem value={2000000}>Dưới 2.000.000</MenuItem>
+                            </Select>
+                    </FormControl>
+                </div>
+                {/* <div>
                     <label htmlFor=''>Giá:</label>
                     <select 
-                        onChange={e => valuePrice = e.target.value}
+                        onClick={e => valuePrice = e.target.value}
                         className='ml-[5px] border text-center p-[5px] outline-none'
                     >
                         {priceArr.map(item => (
                             <option key={item.id} value={item.value}>{item.title}</option>
                         ))}
                     </select>
-                </div>
+                </div> */}
                 {/* {footer} */}
                 <div className=" flex p-[12px] w-full border-t absolute bottom-0">
                     <button 

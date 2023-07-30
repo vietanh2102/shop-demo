@@ -27,7 +27,7 @@ function HeaderResponsive( {state}) {
         setFilterTop(false)
     }
     return ( 
-        <div className=' basis-1/4 flex items-center order-3 lg:hidden px-[15px] overscroll-none'>
+        <div className=' basis-1/4 flex items-center order-3 lg:hidden px-[15px] overflow-y-hidden'>
             <div className=' absolute right-[15px] z-10' onClick={handleClickItem}>
                 {bar ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faBars} />}
             </div>

@@ -1,4 +1,6 @@
 import FilterProduct from "../../../component/FilterProduct";
+import { Pagination } from "@mui/material";
+
 import img1 from "../../../assets/imgTop.jpg"
 import filterimg from "../../../assets/svg/filter.svg"
 import { useContext, useEffect,useState } from "react";
@@ -9,11 +11,14 @@ import ResultFilterTypeProduct from "../../../component/ResultFilter/ResultFilte
 import FilterResponsive from "../../../component/Responsive/FilterResponsive";
 
 function ShortBottoms() {
-    const {showFilter,products,loading,setShowFilter} = useContext(ProductContext)
     useEffect( () => {
         setShowFilter(false)
     },[])
-    const shortBottoms = products.filter(item => item.detail === 'short')
+    const {showFilter,products,loading,setShowFilter} = useContext(ProductContext)
+        //Pagination
+    const {pagination,handleChangePage,pageSize} = useContext(ProductContext)
+    const shortBottomsTotal = products.filter(item => item.detail === 'short')
+    const shortBottoms = shortBottomsTotal.slice(pagination.to,pagination.from)
     const [show,setShow] = useState(false)
     const handleClick = () =>{
         setShow(!show)
@@ -24,7 +29,7 @@ function ShortBottoms() {
             <div className="w-full">
                 <img src={img1} alt="err" />
             </div>
-            <div className="flex  mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[10rem] pt-[71.16px] h-full">
+            <div className="flex  mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10rem] pt-[71.16px] h-full">
                 <div className="hidden lg:flex w-[300px] h-full">
                     <FilterProduct />
                 </div>
@@ -51,6 +56,13 @@ function ShortBottoms() {
                             }
                         </div>
                     }
+                    <div className="flex justify-end my-[20px]">
+                        <Pagination 
+                            count={Math.ceil(shortBottomsTotal.length / pageSize)}
+                            onChange={handleChangePage}
+                            color="primary"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

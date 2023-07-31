@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import Skeleton from "react-loading-skeleton";
+import Pagination from '@mui/material/Pagination';
 import 'react-loading-skeleton/dist/skeleton.css'
 //import img
 import bgImg1 from "../../assets/img/outfit1.webp"
@@ -14,15 +14,19 @@ import { Link } from "react-router-dom";
 import LoadingHome from "../../component/Loading/LoadingHome";
 function Shop() {
     const { products,loading } = useContext(ProductContext)
-    const tops = products.filter(item => item.category === "top")
-    const bottoms = products .filter(item => item.category === "bottoms")
+        // Pagination
+    const {handleChangePage,pageSize,pagination} = useContext(ProductContext)
+    const topProduct = products.filter(item => item.category === 'top')
+    const tops = topProduct.slice(pagination.to,pagination.from)
+    const menClothingBottomsTotal =  products.filter( (item) => item.category === "bottoms")
+    const bottoms = menClothingBottomsTotal.slice(pagination.to,pagination.from)
     return (
         loading ? <LoadingHome /> :
         <section>
             <div>
                 <img src={img1} alt="erro"/>
             </div>
-            <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[18rem] ">
+            <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10px] ">
                 <div>
                     <Link to={"/ao-nam"}>
                         <button className=" text-left font-bold py-[30px] hover:text-red-500 hover:underline">
@@ -30,7 +34,7 @@ function Shop() {
                         </button>
                     </Link>
                 </div>
-                <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[20px]">
+                <div className=" w-full grid grid-cols-2 md:grid-cols-4  xl:grid-cols-4 gap-[20px]">
                     {
                         tops.map((item) => {
                             return (
@@ -38,6 +42,13 @@ function Shop() {
                             )
                         })
                     }
+                </div>
+                <div className="my-[20px] flex justify-center">
+                    <Pagination 
+                        count={Math.ceil(topProduct.length/pageSize)}
+                        color="primary"
+                        onChange={handleChangePage}
+                    />
                 </div>
             </div>
             {/* {OutFit} */}
@@ -56,7 +67,7 @@ function Shop() {
                 </div>
             </div>
             {/* {Bottoms} */}
-            <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[18rem] ">
+            <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10rem] ">
                 <div>
                     <Link to={"/quan-nam"}>
                         <button className=" text-left font-bold pb-[30px] hover:text-red-500 hover:underline">
@@ -64,7 +75,7 @@ function Shop() {
                         </button>
                     </Link>
                 </div>
-                <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[20px] mx-auto">
+                <div className=" w-full grid grid-cols-2 md:grid-cols-4  xl:grid-cols-4 gap-[20px] mx-auto">
                     {
                         bottoms.map((item) => {
                             return (
@@ -72,6 +83,13 @@ function Shop() {
                             )
                         })
                     }
+                </div>
+                <div className= "my-[20px] flex justify-center">
+                    <Pagination 
+                        count={Math.ceil(menClothingBottomsTotal.length/pageSize)}
+                        color="primary"
+                        onChange={handleChangePage}
+                    />
                 </div>
             </div>
         </section>

@@ -11,12 +11,15 @@ import Loading from "../../component/Loading";
 import FilterResponsive from "../../component/Responsive/FilterResponsive";
 
 function tops() {
-    const {showFilter,products,loading,setShowFilter} = useContext(ProductContext)
     useEffect( () => {
         setShowFilter(false)
     },[])
-    
-    const top = products.filter(item => item.category === 'top')
+    const {showFilter,products,loading,setShowFilter} = useContext(ProductContext)
+    // Pagination
+    const {handleChangePage,pageSize,pagination} = useContext(ProductContext)
+    const topProduct = products.filter(item => item.category === 'top')
+    const top = topProduct.slice(pagination.to,pagination.from)
+    //responsiveFilter
     const [show,setShow] = useState(false)
     const handleClick = () =>{
         setShow(!show)
@@ -27,7 +30,7 @@ function tops() {
             <div className="w-full">
                 <img src={img1} alt="err" />
             </div>
-            <div className="flex  mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[10rem] pt-[71.16px] h-full">
+            <div className="flex  mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10rem] pt-[71.16px] h-full">
                 <div className="hidden lg:flex w-[300px] h-full">
                     <FilterProduct />
                 </div>
@@ -53,10 +56,11 @@ function tops() {
                             }
                         </div>
                     }
-                    <div className=" font-roboto text-sm">
+                    <div className={showFilter ? "hidden" : "text-sm my-[20px] flex justify-end"}>
                         <Pagination 
-                            count={Math.ceil(top.length/8)}
+                            count={Math.ceil(topProduct.length/pageSize)}
                             color="primary"
+                            onChange={handleChangePage}
                         />
                     </div>
                 </div>

@@ -60,7 +60,17 @@ function ProductProvider( { children }) {
             }else{
                 setShowFilter(false)
             }
-
+        }
+        // Pagination
+        const pageSize = 8
+        const [pagination,setPagination] = useState({
+            to:0,
+            from:8
+        })
+        const handleChangePage = (e,page) => {
+            const to = (page - 1) * pageSize
+            const from = (page - 1) * pageSize + pageSize
+            setPagination({...pagination,to:to,from:from})
         }
     return ( 
         <ProductContext.Provider value={{products,
@@ -68,6 +78,7 @@ function ProductProvider( { children }) {
             handleClick,priceArr,
             filterProduct,setFilterProduct,
             showFilter,setShowFilter,
+            pageSize,handleChangePage,pagination
             }}>
             {children}
         </ProductContext.Provider>

@@ -13,7 +13,7 @@ function Product( { products } ) {
                     {/* {img} */}
                     <div className=" flex justify-center items-center "> 
                         <Link to={`/product/${id}`}>
-                            <img className=" max-h-[247px] hover:scale-105 transition duration-300" src={image} alt="" />
+                            <img className=" max-h-[139px] xl:max-h-[247px] hover:scale-105 transition duration-300" src={image} alt="" />
                         </Link>
                     </div>
                 </div>

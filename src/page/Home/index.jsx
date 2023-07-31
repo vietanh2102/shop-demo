@@ -26,7 +26,7 @@ function Shop() {
             <div>
                 <img src={img1} alt="erro"/>
             </div>
-            <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10px] ">
+            <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10rem] ">
                 <div>
                     <Link to={"/ao-nam"}>
                         <button className=" text-left font-bold py-[30px] hover:text-red-500 hover:underline">

@@ -10,13 +10,19 @@ function FilterResponsive( {state} ) {
     const {show,setshow} = state
     const handleClickShow =state.handleClick
     const {handleClick} = useContext(ProductContext)
-    const [priceShow,setPriceShow] = useState('')
-    const handleClickApply = () => {
-        handleClick(priceShow)
-        handleClickShow()
+    //PriceValue
+    const [priceValue,setPriceValue] = useState('')
+    const handleChangePrice = e =>{
+        setPriceValue(e.target.value)
     }
-    const handleChange = e =>{
-        setPriceShow(e.target.value)
+    //ColorValue
+    const [size,setSize] = useState('')
+    const handleChangeSize = (e) => {
+        setSize(e.target.value)
+    }
+    const handleClickApply = () => {
+        handleClick({priceValue,size})
+        handleClickShow()
     }
     return ( 
         <div className="overflow-y-hidden">
@@ -32,13 +38,13 @@ function FilterResponsive( {state} ) {
                 </div>
                 {/* {filter} */}
                 <div className="flex p-[20px] items-center">
-                    <h1 className='mb-[5px] mr-[10px]'>Lọc theo giá:</h1>
+                    <h1 className='mb-[5px] mr-[10px] w-[110px]'>Lọc theo giá:</h1>
                     <FormControl sx={{minWidth:120}} size='small'>
                         <InputLabel>Giá</InputLabel>
                             <Select
                                 label="Price"
-                                value={priceShow}
-                                onChange={handleChange}
+                                value={priceValue}
+                                onChange={handleChangePrice}
                                 autoWidth
                             >
                                 <MenuItem value="">
@@ -51,17 +57,26 @@ function FilterResponsive( {state} ) {
                             </Select>
                     </FormControl>
                 </div>
-                {/* <div>
-                    <label htmlFor=''>Giá:</label>
-                    <select 
-                        onClick={e => valuePrice = e.target.value}
-                        className='ml-[5px] border text-center p-[5px] outline-none'
-                    >
-                        {priceArr.map(item => (
-                            <option key={item.id} value={item.value}>{item.title}</option>
-                        ))}
-                    </select>
-                </div> */}
+                <div className="flex p-[20px] pt-0 items-center">
+                    <h1 className='mb-[5px] mr-[10px] w-[110px]'>Lọc theo size:</h1>
+                    <FormControl sx={{minWidth:120}} size='small'>
+                        <InputLabel>Size</InputLabel>
+                            <Select
+                                label="size"
+                                value={size}
+                                onChange={handleChangeSize}
+                                autoWidth
+                            >
+                                <MenuItem value="">
+                                    <em>---</em>
+                                </MenuItem>
+                                <MenuItem value={"S"}>Size S</MenuItem>
+                                <MenuItem value={"M"}>Size M</MenuItem>
+                                <MenuItem value={"L"}>Size L</MenuItem>
+                                <MenuItem value={"XL"}>Size XL</MenuItem>
+                            </Select>
+                    </FormControl>
+                </div>
                 {/* {footer} */}
                 <div className=" flex p-[12px] w-full border-t absolute bottom-0">
                     <button 

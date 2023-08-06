@@ -13,22 +13,22 @@ import ShortBottoms from "../page/ClothesStyle/ShortBottoms";
 
 const publicRoutes = [
     // header
-    {path:'/', component: Shop},
-    {path:'/shop-demo/', component: Shop},
-    {path:'/ao-nam', component: Tops,},
-    {path:'/quan-nam', component: Bottoms,},
-    {path:'/pay', component: Pay},
+    { path: '/', component: Shop },
+    { path: '/shop-demo/', component: Shop },
+    { path: '/ao-nam', component: Tops, },
+    { path: '/quan-nam', component: Bottoms, },
+    { path: '/pay', component: Pay },
     //ProductDetail
-    {path:'/product/:id', component: Product},
+    { path: '/product/:id', component: Product },
     //StyleProduct
-    {path:'/ao-polo', component: Polo,},
-    {path:'/tee', component: Tee,},
-    {path:'/hoodie', component:Hoodie, },
-    {path:'/quan-dai', component: LongBottoms,},
-    {path:'/quan-short', component:ShortBottoms, },
+    { path: '/ao-polo', component: Polo, },
+    { path: '/tee', component: Tee, },
+    { path: '/hoodie', component: Hoodie, },
+    { path: '/quan-dai', component: LongBottoms, },
+    { path: '/quan-short', component: ShortBottoms, },
     //Search
-    {path:'/tim-kiem/:searchValue', component: Search},
-    {path:'/tim-kiem/', component: Search}
+    { path: '/tim-kiem/:searchValue', component: Search },
+    { path: '/tim-kiem/', component: Search }
 ]
 const privateRoutes = []
-export {publicRoutes,privateRoutes}
+export { publicRoutes, privateRoutes }

@@ -56,7 +56,7 @@ function Polo() {
                             }
                         </div>
                     }
-                    <div className="flex justify-end my-[20px]">
+                    <div className={showFilter ? "hidden" : "text-sm my-[20px] flex justify-end"}>
                         <Pagination 
                             count={Math.ceil(poloTotal.length / pageSize)}
                             onChange={handleChangePage}

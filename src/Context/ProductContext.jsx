@@ -18,45 +18,40 @@ function ProductProvider( { children }) {
         getProduct()
     },[])
     //filterPrice
-        const priceArr = [ 
-            {
-                id:0,
-                title:"---",
-                value: 999999999
-            },
-            {
-                id: 1,
-                title: 'Dưới 200.000',
-                value:200000
-            },
-            {
-                id: 2,
-                title: 'Dưới 500.000',
-                value:500000
-            },
-            {
-                id: 3,
-                title: 'Dưới 1.000.000',
-                value:1000000
-            },
-            {
-                id: 4,
-                title: 'Dưới 2.000.000',
-                value:2000000
-            }
-        ]
         const [showFilter,setShowFilter] = useState(false)
         const [filterProduct,setFilterProduct] =  useState([])
-        const handleClick = (valuePrice) => {
+        const handleClick = (value) => {
+            const {priceValue,size,color} = value
             setShowFilter(true)
-            if(valuePrice){
-                const filterProduct = products.filter( item => {
-                        if(item.price < valuePrice){
-                            return true
-                        }
+            if(priceValue || size || color){
+                let filterList = []
+                if(priceValue){
+                    if(filterList.length === 0 ){
+                        filterList = products.filter(item => item.price < priceValue)
+                        setFilterProduct(filterList)
+                    }else{
+                        filterList = filterList.filter(item => item.price < priceValue)
+                        setFilterProduct(filterList)
                     }
-                )
-                setFilterProduct(filterProduct)
+                }
+                if(size){
+                    if(filterList.length === 0 ){
+                        filterList = products.filter(item => item.size.includes(size))
+                        setFilterProduct(filterList)
+                    }else{
+                        filterList = filterList.filter(item => item.size.includes(size))
+                        setFilterProduct(filterList)
+                    }
+                }
+                if(color){
+                    if(filterList.length === 0 ){
+                        filterList = products.filter(item => item.color === color)
+                        setFilterProduct(filterList)
+                    }else{
+                        filterList = filterList.filter(item => item.color === color)
+                        setFilterProduct(filterList)
+                    }
+                }
             }else{
                 setShowFilter(false)
             }
@@ -67,7 +62,7 @@ function ProductProvider( { children }) {
             to:0,
             from:8
         })
-        const handleChangePage = (e,page) => {
+        const handleChangePage = (e,page=1) => {
             const to = (page - 1) * pageSize
             const from = (page - 1) * pageSize + pageSize
             setPagination({...pagination,to:to,from:from})
@@ -75,7 +70,7 @@ function ProductProvider( { children }) {
     return ( 
         <ProductContext.Provider value={{products,
             loading,
-            handleClick,priceArr,
+            handleClick,
             filterProduct,setFilterProduct,
             showFilter,setShowFilter,
             pageSize,handleChangePage,pagination

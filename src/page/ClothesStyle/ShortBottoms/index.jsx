@@ -56,7 +56,7 @@ function ShortBottoms() {
                             }
                         </div>
                     }
-                    <div className="flex justify-end my-[20px]">
+                    <div className={showFilter ? "hidden" : "text-sm my-[20px] flex justify-end"}>
                         <Pagination 
                             count={Math.ceil(shortBottomsTotal.length / pageSize)}
                             onChange={handleChangePage}

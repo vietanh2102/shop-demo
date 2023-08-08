@@ -20,9 +20,9 @@ function Product() {
     const {id} = useParams()
     const [product,setProduct]=useState([])
     const [loading,setLoading] = useState(false)
-    const {addItem,cart} = useContext(CartContext)
+    const {addItem,cart,itemAmount} = useContext(CartContext)
     const handleClick = (id,product) => {
-        if(cart === false){
+        if(itemAmount === 0){
             addItem(id,product)
         }
     }

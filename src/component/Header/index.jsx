@@ -42,7 +42,7 @@ function Header() {
                     <Link to={'/pay'}>
                         <img src={cart} alt='err' className='pb-[8px]' />
                     </Link>
-                        <span className=' absolute flex justify-center items-center bottom-[10px] right-[-7px] text-[12px] text-white bg-red-600 rounded-full h-[15px] w-[15px]'>{itemAmount}</span>
+                        <span className=' absolute flex justify-center items-center bottom-[10px] right-[-7px] text-[12px] text-white bg-rose-600 rounded-full h-[16px] w-[16px]'>{itemAmount}</span>
                     </div>
                     {/* {User} */}
                     <div className=''>

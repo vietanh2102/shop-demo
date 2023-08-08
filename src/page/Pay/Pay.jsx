@@ -1,11 +1,11 @@
-import React,{useContext,useEffect,useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import CartItem from "../../component/CartItem";
 import { Link } from "react-router-dom";
 function Pay() {
-    const { cart,totalCost } = useContext(CartContext)
+    const { cart, totalCost,itemAmount } = useContext(CartContext)
 
-    return ( 
+    return (
         <div className=" mx-0 sm:mx-[5px] md:mx-[4rem] lg-mx-[10rem]">
             <div className="pt-[30px]">
                 <h2 className=" font-bold text-6xl">Giỏ Hàng</h2>
@@ -18,8 +18,8 @@ function Pay() {
                         <div className=" col-span-3">Tổng Tiền</div>
                         <div>Xóa</div>
                     </div>
-                    {cart.map( item => {
-                        return(
+                    {cart.map(item => {
+                        return (
                             <CartItem key={item.id} item={item} />
                         )
                     })}
@@ -32,19 +32,27 @@ function Pay() {
                         <div className=" absolute right-[10px]">{Number(totalCost).toLocaleString()}đ</div>
                     </div>
                     <div className='flex justify-center py-[25px]'>
-                        <button className="w-[150px] h-[50px]  border-solid bg-slate-800 text-white rounded-full hover:bg-white hover:text-black">Thanh Toán</button>
+                        <Link to={'/thongtinmuahang'}>
+                            <button
+                                className="w-[150px] h-[50px]  border-solid bg-slate-800 text-white rounded-full hover:opacity-90"
+                            >
+                                Thanh Toán
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
             <div>
                 <Link to={'/'}>
-                    <button className="w-full md:w-auto h-[60px] mb-[40px] lg:mt-[30px] px-[50px] border-solid bg-slate-800 text-white rounded-full  hover:bg-white hover:text-black">
+                    <button 
+                        className="w-full md:w-auto h-[60px] mb-[40px] lg:mt-[30px] px-[50px] bg-slate-800 text-white rounded-full  hover:opacity-90"
+                    >
                         Tiếp tục mua sắm
                     </button>
                 </Link>
             </div>
         </div>
-     );
+    );
 }
 
 export default Pay;

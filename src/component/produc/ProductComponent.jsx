@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import React, { useContext, useState } from "react";
-import { CartContext } from "../../Context/CartContext";
-import { ProductContext } from "../../Context/ProductContext";
 
 function Product( { products } ) {
     const Show = () => {

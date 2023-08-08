@@ -10,6 +10,8 @@ import LongBottoms from "../page/ClothesStyle/LongBottoms";
 import Polo from "../page/ClothesStyle/Polo";
 import Hoodie from "../page/ClothesStyle/Hoodie";
 import ShortBottoms from "../page/ClothesStyle/ShortBottoms";
+import PayInfo from "../page/PayInfo";
+import CustomerManagement from "../page/CustomerManagement";
 
 const publicRoutes = [
     // header
@@ -18,6 +20,8 @@ const publicRoutes = [
     { path: '/ao-nam', component: Tops, },
     { path: '/quan-nam', component: Bottoms, },
     { path: '/pay', component: Pay },
+    { path: '/thongtinmuahang',component:PayInfo},
+    { path: 'quanlydonhang', component:CustomerManagement, layout:null},
     //ProductDetail
     { path: '/product/:id', component: Product },
     //StyleProduct

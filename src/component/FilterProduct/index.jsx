@@ -32,7 +32,7 @@ function FilterProduct() {
     }
 
     return (
-        <div className=" p-[20px] pl-0 font-bold lg:ml-0  ">
+        <div className=" mr-[20px] pl-0 font-bold lg:ml-0 border-r h-[700px] ">
             <h1 className=' font-bold text-[20px] hidden lg:inline-block w-full'>Bộ Lọc:</h1>
             <div className=' hidden lg:inline-block'>
                 <h1 className=' font-bold'>Danh mục sản phẩm:</h1>

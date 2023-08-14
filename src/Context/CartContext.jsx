@@ -15,7 +15,7 @@ function CartProvider( { children } ) {
     //xoa item khoi cart
     const removeItem = (id) => {
         const newCart = cart.filter( item => {
-            return item.id !== id
+            return item.newId !== id
         })
         setCart(newCart)
     }
@@ -26,11 +26,11 @@ function CartProvider( { children } ) {
     // Giams so luong san pham
     const deIncreaseItem = (id) => {
         const cartItem = cart.find( item => {
-            return item.id === id
+            return item.newId === id
         })
         if(cartItem){
             const newCart = cart.map( item => {
-                if(item.id===id){
+                if(item.newId===id){
                     return {...item, quatity: item.quatity -1}
                 }else{
                     return item
@@ -45,24 +45,25 @@ function CartProvider( { children } ) {
     }
     //tang so luong san pham
     const increaseItem = (id) => {
-        const cartItem = cart.find(item => item.id === id)
-        addItem(id,cartItem)
+        const cartItem = cart.find(item => item.newId === id)
+        addItem(cartItem.id,cartItem,cartItem.size)
     }
 // them san pham vao cart
-    const addItem = ( id, products ) => {
-        const newProduct = {...products, quatity: 1}
+    const addItem = ( id, products,sizeInput ) => {
+        const newProduct = {...products, quatity: 1,size: sizeInput,newId: cart.length}
+        console.log(newProduct);
 
         //kiểm tra item đã có trong cart chưa
         const cartItem = cart.find( (item) => {
             return(
-                item.id === id
+                item.id === id && item.size === sizeInput
             )
         }) // Trả về các item có cùng id vừa click
 
         //Nếu có item trong cart thì tăng quatity, nếu k có thì THÊM item vào cart
         if(cartItem){
             const newCart = cart.map( (item) => {
-                if(item.id === id){
+                if(item.id === id && item.size === sizeInput){
                     return {...item, quatity: cartItem.quatity +1 }
                 }else{
                     return item

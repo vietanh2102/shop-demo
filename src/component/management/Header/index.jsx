@@ -1,6 +1,6 @@
 
 import searchImg from "../../../assets/search.svg"
-function Header() {
+function HeaderManagement() {
     return (
         <div className="flex">
             <div className="p-[20px] w-[150px] border bg-white">
@@ -14,4 +14,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default HeaderManagement;

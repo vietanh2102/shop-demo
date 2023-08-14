@@ -14,6 +14,7 @@ function BillItem({ item }) {
                     <div className="ml-[5px]">
                         <Link to={`/product/${item.id}`}>
                             <h1 className="hover:underline">{item.title}</h1>
+                            <h1>Size: {item.size}</h1>
                             <h1>Số lượng: {item.quatity}</h1>
                         </Link>
                     </div>

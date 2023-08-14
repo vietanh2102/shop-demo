@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons'
-function Body() {
+function BodyManagement() {
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(false)
     const api = 'https://yymyxn-8080.csb.app/data'
@@ -47,9 +47,10 @@ function Body() {
                     </div>
                     <div className="border bg-[#fafafa] pl-[10px] w-[20%] text-left py-[5px] inline-block">
                         {item.cart.map(item => (
-                            <h1 key={item.id} className="py-[5px]">
-                                {item.title}x{item.quatity}
-                            </h1>
+                            <div key={item.id} className="py-[5px]">
+                                <h1>{item.title}</h1>
+                                <h1>Size:{item.size}x{item.quatity}</h1>
+                            </div>
                         ))}
                     </div>
                     <div className="border bg-[#fafafa] pl-[10px] w-[10%] text-left py-[5px]">
@@ -61,4 +62,4 @@ function Body() {
     );
 }
 
-export default Body;
+export default BodyManagement;

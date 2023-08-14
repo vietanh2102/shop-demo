@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 function PayInfo() {
     const { cart, totalCost, itemAmount } = useContext(CartContext)
+    console.log(cart);
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -72,7 +73,7 @@ function PayInfo() {
         setPhone('')
     }
     return (
-        <div className="h-full grid lg:grid-cols-3">
+        <div className="h-full lg:grid lg:grid-cols-3">
             <div className="col-span-2 lg:pr-[100px] lg:border-r py-[50px]">
                 <span className=" font-bold px-[30px]">Thông tin nhận hàng</span>
                 <div className="mx-[50px] my-[20px]">
@@ -115,7 +116,7 @@ function PayInfo() {
                     />
                 </div>
             </div>
-            <div className=" bg-[#fafafa]  lg:mx-0 w-full lg:py-[50px]">
+            <div className=" bg-[#fafafa]  lg:mx-0 w-full lg:py-[50px] py-[20px]">
                 <span className=" font-bold text-xl p-[30px]">
                     Đơn hàng({itemAmount} sản phẩm)
                 </span>

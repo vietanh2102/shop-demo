@@ -17,7 +17,16 @@ function Bottoms() {
     },[] )
     const {loading,products,showFilter,setShowFilter} = useContext(ProductContext)
     //Pagination
-    const {handleChangePage,pageSize,pagination} = useContext(ProductContext)
+    const pageSize = 8
+    const [pagination,setPagination] = useState({
+        to:0,
+        from:8
+    })
+    const handleChangePage = (e,page=1) => {
+        const to = (page - 1) * pageSize
+        const from = (page - 1) * pageSize + pageSize
+        setPagination({...pagination,to:to,from:from})
+    }
     const menClothingBottomsTotal =  products.filter( (item) => item.category === "bottoms")
     const menClothingBottoms = menClothingBottomsTotal.slice(pagination.to,pagination.from)
     const [show,setShow] = useState(false)

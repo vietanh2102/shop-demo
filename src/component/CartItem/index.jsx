@@ -17,6 +17,7 @@ function CartItem({item}) {
                 <div className="ml-[5px]">
                     <Link to={`/product/${item.id}`}>
                         <h1 className=" hover:underline">{item.title}</h1>
+                        <h1>Size: {item.size}</h1>
                         <h1 className=" hover:underline">{Number(item.price).toLocaleString()}đ</h1>
                     </Link>
                 </div>
@@ -24,17 +25,17 @@ function CartItem({item}) {
             <div className="flex justify-center col-span-3">
                 <div className=" border-y border-inherit h-[40px] flex">
                     <div className="w-[30px] flex items-center justify-center">
-                        <button className="w-full" onClick={() => deIncreaseItem(item.id)}>-</button>
+                        <button className="w-full" onClick={() => deIncreaseItem(item.newId)}>-</button>
                     </div>
                     <div className="w-[30px] flex items-center justify-center">{item.quatity}</div>
                     <div className="w-[30px] flex items-center justify-center">
-                        <button className="w-full" onClick={() => increaseItem(item.id)}>+</button>
+                        <button className="w-full" onClick={() => increaseItem(item.newId)}>+</button>
                     </div>
                 </div>
             </div>
             <div className=" col-span-3 py-[8px]">{Number(item.quatity*item.price).toLocaleString()}đ</div>
             <div className="py-[8px]">
-                <button onClick={() => removeItem(item.id)}>
+                <button onClick={() => removeItem(item.newId)}>
                     <FontAwesomeIcon icon={faTrashCan} />
                 </button>
             </div>

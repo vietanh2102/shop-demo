@@ -84,12 +84,14 @@ function Shop() {
                             })
                         }
                     </div>
-                    <div className="my-[20px] flex justify-center">
-                        <Pagination
-                            count={Math.ceil(menClothingBottomsTotal.length / pageSize)}
-                            color="primary"
-                            onChange={handleChangePage}
-                        />
+                    <div className="my-[20px] flex justify-center w-full">
+                        <Link to={'/quan-nam'}>
+                            <button
+                                className="w-[100%] h-[40px] bg-red text-white font-bold rounded-[4px] mr-[10px] hover:opacity-90"
+                            >
+                                Xem tất cả
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>

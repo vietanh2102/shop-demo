@@ -3,8 +3,7 @@ import { CartContext } from "../../Context/CartContext";
 import CartItem from "../../component/CartItem";
 import { Link } from "react-router-dom";
 function Pay() {
-    const { cart, totalCost,itemAmount } = useContext(CartContext)
-
+    const { cart, totalCost, itemAmount } = useContext(CartContext)
     return (
         <div className=" mx-0 sm:mx-[5px] md:mx-[4rem] lg-mx-[10rem]">
             <div className="pt-[30px]">
@@ -20,36 +19,40 @@ function Pay() {
                     </div>
                     {cart.map(item => {
                         return (
-                            <CartItem key={item.id} item={item} />
+                            <CartItem key={item.newId} item={item} />
                         )
                     })}
                 </div>
 
 
-                <div className=" h-[150px] border border-inherit my-[30px] lg:mx-[10px]">
+                <div className=" h-auto border border-inherit my-[30px] lg:mx-[10px]">
                     <div className="flex items-center relative border border-inherit h-[50px]">
                         <div className="ml-[20px]">Tổng Tiền</div>
                         <div className=" absolute right-[10px]">{Number(totalCost).toLocaleString()}đ</div>
                     </div>
-                    <div className='flex justify-center py-[25px]'>
-                        <Link to={'/thongtinmuahang'}>
-                            <button
-                                className="w-[150px] h-[50px]  border-solid bg-slate-800 text-white rounded-full hover:opacity-90"
-                            >
-                                Thanh Toán
-                            </button>
-                        </Link>
+                    <div className='flex justify-center'>
+                        <div className="flex justify-center py-[25px] lg:inline-block">
+                            <div className="mx-[20px] lg:my-[20px]">
+                                <Link to={'/thongtinmuahang'}>
+                                    <button
+                                        className="w-[150px] h-[50px]  border-solid bg-slate-800 text-white rounded-full hover:opacity-90"
+                                    >
+                                        Thanh Toán
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className="mx-[20px] lg:my-[20px]">
+                                <Link to={'/'}>
+                                    <button
+                                        className="w-[150px] h-[50px]  border-solid bg-slate-800 text-white rounded-full hover:opacity-90"
+                                    >
+                                        Tiếp tục mua sắm
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <Link to={'/'}>
-                    <button 
-                        className="w-full md:w-auto h-[60px] mb-[40px] lg:mt-[30px] px-[50px] bg-slate-800 text-white rounded-full  hover:opacity-90"
-                    >
-                        Tiếp tục mua sắm
-                    </button>
-                </Link>
             </div>
         </div>
     );

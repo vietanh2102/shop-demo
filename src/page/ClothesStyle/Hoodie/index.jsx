@@ -15,7 +15,16 @@ function Hoodie() {
     },[])
     const {showFilter,products,loading,setShowFilter} = useContext(ProductContext)
     //Pagination
-    const {pagination,handleChangePage,pageSize} = useContext(ProductContext)
+    const pageSize = 8
+    const [pagination,setPagination] = useState({
+        to:0,
+        from:8
+    })
+    const handleChangePage = (e,page=1) => {
+        const to = (page - 1) * pageSize
+        const from = (page - 1) * pageSize + pageSize
+        setPagination({...pagination,to:to,from:from})
+    }
     const hoodieTotal = products.filter(item => item.detail === 'hoodie')
     const hoodie = hoodieTotal.slice(pagination.to,pagination.from)
     const [show,setShow] = useState(false)

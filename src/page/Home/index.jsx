@@ -5,13 +5,15 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import bgImg1 from "../../assets/img/outfit1.webp"
 import bgImg2 from "../../assets/img/outfit2.webp"
 import bgImg3 from "../../assets/img/outfit3.webp"
-import img1 from "../../assets/bg.webp"
+
 //import ProducContext
 import { ProductContext } from "../../Context/ProductContext";
-import Product from "../../component/produc/ProductComponent";
+import Product from "../../component/ProductComponent/ProductComponent";
 import Loading from "../../component/Loading";
 import { Link } from "react-router-dom";
 import LoadingHome from "../../component/Loading/LoadingHome";
+import Slide from "../../component/Slide/Slice";
+import TextSale from "../../component/TextSale/TextSale";
 function Shop() {
     const { products, loading } = useContext(ProductContext)
     // Pagination
@@ -23,10 +25,9 @@ function Shop() {
     return (
         loading ? <LoadingHome /> :
             <section>
-                <div>
-                    <img src={img1} alt="erro" />
-                </div>
-                <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10rem] ">
+                <Slide />
+                <TextSale />
+                <div className="mx-0 sm:mx-[30px] md:mx-[6rem] lg:mx-[6rem] xl:mx-[10rem] ">
                     <div>
                         <Link to={"/ao-nam"}>
                             <button className=" text-left font-bold py-[30px] hover:text-red-500 hover:underline">
@@ -34,7 +35,7 @@ function Shop() {
                             </button>
                         </Link>
                     </div>
-                    <div className=" w-full grid grid-cols-2 md:grid-cols-4  xl:grid-cols-4 gap-[20px]">
+                    <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[30px]">
                         {
                             tops.map((item) => {
                                 return (
@@ -67,7 +68,7 @@ function Shop() {
                     </div>
                 </div>
                 {/* {Bottoms} */}
-                <div className="mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10rem] ">
+                <div className="mx-0 sm:mx-[30px] md:mx-[6rem] lg:mx-[6rem] xl:mx-[10rem] ">
                     <div>
                         <Link to={"/quan-nam"}>
                             <button className=" text-left font-bold pb-[30px] hover:text-red-500 hover:underline">
@@ -75,7 +76,7 @@ function Shop() {
                             </button>
                         </Link>
                     </div>
-                    <div className=" w-full grid grid-cols-2 md:grid-cols-4  xl:grid-cols-4 gap-[20px] mx-auto">
+                    <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[30px] mx-auto">
                         {
                             bottoms.map((item) => {
                                 return (

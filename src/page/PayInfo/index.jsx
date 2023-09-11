@@ -55,13 +55,13 @@ function PayInfo() {
             email: email,
             address: address,
             cart: cart,
-            totalCost:totalCost
+            totalCost: totalCost
         }
         if (name && phone && email && address) {
-            if(itemAmount !== 0){
+            if (itemAmount !== 0) {
                 postData(formData)
                 alert('Đặt hàng thành công')
-            }else{
+            } else {
                 alert('Quý Khách vui lòng chọn sản phẩm cần mua')
             }
         } else {

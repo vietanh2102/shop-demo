@@ -10,13 +10,13 @@ function FilterProduct() {
     const [filterTop, setFilterTop] = useState(false)
     const [filterBottom, setFilterBottom] = useState(false)
     //Price
-    const [priceValue,setPriceValue] = useState('')
+    const [priceValue, setPriceValue] = useState('')
     const handleChangePrice = e => {
         setPriceValue(e.target.value)
     }
     //ColorValue
-    const [color,setColor] = useState('')
-    const handleChangeColor = (e) =>{
+    const [color, setColor] = useState('')
+    const handleChangeColor = (e) => {
         setColor(e.target.value)
     }
     //Sizevalue
@@ -24,7 +24,7 @@ function FilterProduct() {
     const handleChangeSize = (e) => {
         setSize(e.target.value)
     }
-    const handleCancel = () =>{
+    const handleCancel = () => {
         setPriceValue('')
         setSize('')
         setColor('')
@@ -32,12 +32,12 @@ function FilterProduct() {
     }
 
     return (
-        <div className=" mr-[20px] pl-0 font-bold lg:ml-0 border-r h-[700px] ">
+        <div className=" pl-[50px] font-bold lg:ml-[-30px]  bg-white pt-[71.16px] ">
             <h1 className=' font-bold text-[20px] hidden lg:inline-block w-full'>Bộ Lọc:</h1>
             <div className=' hidden lg:inline-block'>
                 <h1 className=' font-bold'>Danh mục sản phẩm:</h1>
                 <Link><h1 className=' my-[5px] ml-[10px]'>Sale</h1></Link>
-                <div className=' my-[5px] ml-[10px]'>
+                <div className=' my-[5px] ml-[10px] relative'>
                     <div className='z-10 bg-white'>
                         <button
                             onClick={() => setFilterTop(!filterTop)}
@@ -47,7 +47,7 @@ function FilterProduct() {
                             {filterTop ? <FontAwesomeIcon icon={faAngleUp} size='sm' /> : <FontAwesomeIcon icon={faAngleDown} size='sm' />}
                         </button>
                     </div>
-                    <div className={filterTop ? "pl-[10px]" : " hidden"}>
+                    <div className={filterTop ? "relative top-[0] left-[10px] bg-white " : "relative top-[-100%] hidden"}>
                         <Link to={"/ao-polo"}><h1>Áo Polo</h1></Link>
                         <Link to={"/tee"}><h1>Tee</h1></Link>
                         <Link to={"/hoodie"}><h1>Hoodie</h1></Link>
@@ -142,7 +142,7 @@ function FilterProduct() {
                 </button>
                 <button
                     className="w-[40%] h-[40px] bg-red text-[#ffffff] border rounded-[4px]"
-                    onClick={() => handleClick({priceValue,size,color})}
+                    onClick={() => handleClick({ priceValue, size, color })}
                 >
                     Áp dụng
                 </button>

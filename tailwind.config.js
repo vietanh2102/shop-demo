@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 export default {
   content: [
     "./index.html",
@@ -7,10 +8,10 @@ export default {
   theme: {
     container: {
       padding: {
-        xl:'16rem',
-        lg:'16rem',
-        md:'2rem',
-        sm:'2rem'
+        xl: '16rem',
+        lg: '16rem',
+        md: '2rem',
+        sm: '2rem'
       },
     },
     screens: {
@@ -24,17 +25,46 @@ export default {
         'shadow': '0 0 5px 0 rgba(102, 102, 102, 0.4)'
       },
       borderColor: {
-        'de':'#dedede'
+        'de': '#dedede'
       },
       colors: {
-        'bar':'rgba(0, 0, 0, 0.8);',
-        'red':'rgba(254, 44, 85, 1)',
+        'bar': 'rgba(0, 0, 0, 0.8);',
+        'red': 'rgba(254, 44, 85, 1)',
         'text': "#333333",
       },
       fontFamily: {
-        "roboto":['Roboto', 'sans-serif']
+        "roboto": ['Roboto', 'sans-serif']
+      },
+      keyframes: {
+        up: {
+          '0%': { transform: 'translateY(60px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      },
+      animation: {
+        up: 'up 300ms linear',
+        loopText: 'marquee 20s linear infinite',
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+  ],
 }

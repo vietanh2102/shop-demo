@@ -11,25 +11,25 @@ function Product() {
     const [product, setProduct] = useState([])
     const size = product.size
     const [loading, setLoading] = useState(false)
-    const [sizeInput,setSizeInput] = useState('')
+    const [sizeInput, setSizeInput] = useState('')
     const handleChangeInputSize = (e) => {
         setSizeInput(e.target.value)
     }
     const { addItem, cart, itemAmount } = useContext(CartContext)
-    const handleClickBuy = (id, product,sizeInput) => {
-        if(sizeInput === ''){
+    const handleClickBuy = (id, product, sizeInput) => {
+        if (sizeInput === '') {
             alert('Vui Lòng chọn Size')
-        }else{
+        } else {
             if (itemAmount === 0) {
-                addItem(id, product,sizeInput)
+                addItem(id, product, sizeInput)
             }
         }
     }
-    const handleAddItem = (id,product,sizeInput) => {
-        if(sizeInput === ''){
+    const handleAddItem = (id, product, sizeInput) => {
+        if (sizeInput === '') {
             alert('Vui Lòng chọn Size')
-        }else{
-            addItem(id,product,sizeInput)
+        } else {
+            addItem(id, product, sizeInput)
         }
     }
     useEffect(() => {
@@ -66,9 +66,9 @@ function Product() {
                                     onChange={handleChangeInputSize}
                                 >
                                     {size && size.map(item => (
-                                        <ToggleButton 
-                                            value={item} 
-                                            style={{paddingLeft:25,paddingRight:25}}
+                                        <ToggleButton
+                                            value={item}
+                                            style={{ paddingLeft: 25, paddingRight: 25 }}
                                             key={item}
                                         >
                                             {item}
@@ -80,7 +80,7 @@ function Product() {
                         {/* {button} */}
                         <div
                             className="w-[full] h-[44px] mt-[30px] border border-[#333] rounded-[3px] bg-white flex justify-center items-center cursor-pointer"
-                            onClick={() => handleAddItem(product.id, product,sizeInput)}
+                            onClick={() => handleAddItem(product.id, product, sizeInput)}
                         >
                             <button>
                                 Thêm vào giỏ
@@ -88,8 +88,8 @@ function Product() {
                         </div>
                         <Link to={sizeInput && '/pay'}>
                             <div
-                                className="w-[full] h-[44px] mt-[5px] border border-black bg-[#333] rounded-[3px] text-white flex justify-center items-center cursor-pointer"
-                                onClick={() => handleClickBuy(product.id, product,sizeInput)}
+                                className="w-[full] h-[44px] mt-[5px] border border-black bg-[#333] rounded-[3px] text-white flex justify-center items-center cursor-pointer hover:opacity-90"
+                                onClick={() => handleClickBuy(product.id, product, sizeInput)}
                             >
                                 <button>
                                     Mua ngay

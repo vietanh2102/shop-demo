@@ -5,7 +5,7 @@ import img1 from "../../../assets/imgTop.jpg"
 import filterimg from "../../../assets/svg/filter.svg"
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../../../Context/ProductContext";
-import Product from "../../../component/produc/ProductComponent";
+import Product from "../../../component/ProductComponent/ProductComponent";
 import Loading from "../../../component/Loading";
 import ResultFilterTypeProduct from "../../../component/ResultFilter/ResultFilterTypeProduct";
 import FilterResponsive from "../../../component/Responsive/FilterResponsive";
@@ -38,11 +38,11 @@ function ShortBottoms() {
                 <div className="w-full">
                     <img src={img1} alt="err" />
                 </div>
-                <div className="flex  mx-0 sm:mx-[30px] md:mx-[10rem] lg:mx-[6rem] xl:mx-[10rem] pt-[71.16px] h-full">
-                    <div className="hidden lg:flex w-[300px] h-full">
+                <div className="flex  mx-0 sm:mx-[30px] md:mx-[4rem] lg:mx-[30px]">
+                    <div className="hidden lg:flex w-[300px] h-100vh">
                         <FilterProduct />
                     </div>
-                    <div className="w-full">
+                    <div className="w-full  lg:mx-[30px] pt-[71.16px] ">
                         <h1 className="font-bold text-[20px]">Quần Short</h1>
                         <div
                             className="py-[5px] px-[12px] border rounded-[7px] cursor-pointer lg:hidden"
@@ -57,7 +57,7 @@ function ShortBottoms() {
                         <FilterResponsive state={{ show, setShow, handleClick }} />
                         {/* {showProduct} */}
                         {showFilter ? <ResultFilterTypeProduct detail='short' /> :
-                            <div className=" w-full grid grid-cols-2 md:grid-cols-4  xl:grid-cols-4 gap-[30px] my-[15px]">
+                            <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[10px] md:gap-[30px] my-[15px]">
                                 {
                                     shortBottoms.map(item => (
                                         <Product key={item.id} products={item} />

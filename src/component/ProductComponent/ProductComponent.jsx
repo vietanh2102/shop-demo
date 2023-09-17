@@ -7,11 +7,11 @@ function Product({ products }) {
         const price = Number(products.price)
         return (
             <div className=" overflow-hidden  relative group shadow rounded-[4px] bg-white hover:translate-y-[-20px] duration-300">
-                <div className=" flex justify-center items-center  h-auto">
+                <div className="w-full flex justify-center items-center  h-auto">
                     {/* {img} */}
                     <div className=" flex justify-center items-center ">
                         <Link to={`/product/${id}`}>
-                            <img className=" max-h-[139px] xl:max-h-[208px] mt-[20px] hover:scale-105 transition duration-300" src={image} alt="" />
+                            <img className=" max-h-[139px] w-full xl:max-h-[208px] mt-[20px] hover:scale-105 transition duration-300" src={image[0]} alt="" />
                         </Link>
                     </div>
                 </div>

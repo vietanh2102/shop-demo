@@ -15,7 +15,7 @@ function Header() {
     const [bar, setBar] = useState(false)
     const { itemAmount } = useContext(CartContext)
     return (
-        <div className=' fixed top-0 z-10 w-full h-[100px] bg-[#f1f1f1] flex flex-row  shadow'>
+        <div className=' fixed top-0 z-20 w-full h-[100px] bg-[#f1f1f1] flex flex-row  shadow'>
             {/* Logo */}
             <div className='z-10 flex justify-center items-center h-full basis-2/4 lg:basis-1/4 order-2'>
                 <img className='h-[70px]' src={logo} alt='err' />

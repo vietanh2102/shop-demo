@@ -14,10 +14,10 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 
 function SliceImg({ image }) {
-    const [thumbsSwiper, setThumbsSwiper] = useState('');
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
-        <div className="w-2/3  ">
-            <div className="relative">
+        <div className="w-full lg:w-2/3 lg:mx-auto  ">
+            <div className="relative mx-auto">
                 <Swiper
                     spaceBetween={10}
                     navigation={{
@@ -31,7 +31,7 @@ function SliceImg({ image }) {
                 >
                     {image && image.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <img src={item} alt="err" />
+                            <img className="mx-auto" src={item} alt="err" />
                         </SwiperSlide>
                     ))}
                     <div className="custom_next absolute  p-[5px] py-[20px] bg-[#444444] opacity-50 z-20 top-1/3 md:top-1/2 right-0 ">
@@ -58,7 +58,7 @@ function SliceImg({ image }) {
             >
                 {image && image.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <img className="max-w-[150px] mx-auto" src={item} alt="err" />
+                        <img className="max-w-[80px] md:max-w-[150px] mx-auto" src={item} alt="err" />
                     </SwiperSlide>
                 ))}
 

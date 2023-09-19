@@ -55,7 +55,7 @@ function Product() {
                         <SliceImg image={image} />
                     </div>
                     {/* {detail} */}
-                    <div className="text-center relative lg:w-[1/4]">
+                    <div className="text-center relative lg:w-1/4">
                         <div className=" font-bold">{product.title}</div>
                         <div className="">{price.toLocaleString()}đ</div>
                         {/* {size} */}
@@ -101,7 +101,7 @@ function Product() {
                         </Link>
                         <div className="  ">
                             <h1 className=" font-bold text-left">Size chart:</h1>
-                            <img className="lg:max-w-[400px]" src={sizeImg} alt="err" />
+                            <img className="lg:w-full" src={sizeImg} alt="err" />
                         </div>
                     </div>
                 </div>

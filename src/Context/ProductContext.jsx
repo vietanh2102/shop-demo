@@ -10,7 +10,7 @@ function ProductProvider({ children }) {
     useEffect(() => {
         const getProduct = async () => {
             setLoading(true)
-            const res = await fetch(`https://hpvggl-8080.csb.app/products`);
+            const res = await fetch(`https://zrnvxy-8080.csb.app/products`);
             const data = await res.json();
             setProducts(data);
             setLoading(false)

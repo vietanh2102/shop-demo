@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { CartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 
@@ -14,6 +14,13 @@ import NavBar from './Component/Link/NavBar'
 function Header() {
     const [bar, setBar] = useState(false)
     const { itemAmount } = useContext(CartContext)
+    useEffect(() => {
+        if (bar) {
+            document.body.style.overflowY = "hidden"
+        } else {
+            document.body.style.overflowY = "scroll"
+        }
+    })
     return (
         <div className=' fixed top-0 z-20 w-full h-[100px] bg-[#f1f1f1] flex flex-row  shadow'>
             {/* Logo */}

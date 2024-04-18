@@ -49,7 +49,7 @@ function Product() {
     const Show = () => {
         return (
             <div className="w-full py-[50px] px-[30px] md:px-[8.33%] ">
-                <h1 className="w-[100px] text-center h-[25px] my-[10px] bg-black text-white">New Arrival</h1>
+                <h1 className="w-[100px] px-[6px] py-[8px] h-auto my-[10px] bg-black text-white"> New Arrival</h1>
                 <div className="w-full mx-auto inline-block lg:flex">
                     <div className="w-full lg:w-2/3">
                         <SliceImg image={image} />

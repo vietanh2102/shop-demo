@@ -92,12 +92,12 @@ function Shop() {
                 <div className="mx-0 sm:mx-[30px] md:mx-[6rem] lg:mx-[6rem] xl:mx-[10rem] ">
                     <TitleProduct path={"/quan-nam"} title={"Bottoms"} />
                     <ShowProduct productList={bottoms} />
-                    <div className="my-[20px] flex justify-center w-full">
+                    <div className="my-[20px] p-[50px] flex justify-center">
                         <Link to={'/quan-nam'}>
                             <button
-                                className="w-[100%] h-[40px] bg-red text-white font-bold rounded-[4px] mr-[10px] hover:opacity-90"
+                                className=" px-[20px] py-[10px] h-auto bg-red text-white font-bold rounded-[4px] mr-[10px] hover:opacity-80"
                             >
-                                Xem tất cả
+                                <span>Xem tất cả</span>
                             </button>
                         </Link>
                     </div>

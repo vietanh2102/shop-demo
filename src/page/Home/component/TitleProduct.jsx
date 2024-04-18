@@ -16,11 +16,11 @@ function TitleProduct({ path, title }) {
     }, [])
     return (
         <div
-            className={`duration-500 ${isViewTitle ? 'opacity-1 translate-y-0' : 'opacity-0 translate-y-[50px]'}`}
+            className={`flex justify-center duration-500 ${isViewTitle ? 'opacity-1 translate-y-0' : 'opacity-0 translate-y-[50px]'}`}
             ref={ref}
         >
             <Link to={path}>
-                <button className=" text-left text-[28px] font-bold py-[30px] hover:text-red-500 hover:underline">
+                <button className=" text-[28px] font-bold py-[30px] hover:text-red-500 hover:underline">
                     {title}
                 </button>
             </Link>

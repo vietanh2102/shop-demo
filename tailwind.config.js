@@ -29,6 +29,7 @@ export default {
       },
       colors: {
         'bar': 'rgba(0, 0, 0, 0.8);',
+        'pink': 'rgba(254, 44, 85, 1)',
         'red': 'rgba(254, 44, 85, 1)',
         'text': "#333333",
       },

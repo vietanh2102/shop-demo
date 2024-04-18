@@ -6,6 +6,7 @@ function Product({ products }) {
         const price = Number(products.price)
         return (
             <div className=" overflow-hidden  relative group shadow rounded-[4px] bg-white hover:translate-y-[-20px] duration-300">
+                <h1 className="w-[100px] text-[14px] px-[6px] py-[8px] h-auto  bg-pink text-white"> New Arrival</h1>
                 <div className="w-full flex justify-center items-center  h-auto">
                     {/* {img} */}
                     <div className=" flex justify-center items-center ">

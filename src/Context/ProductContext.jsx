@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import React from "react";
+import { toTopPage } from "../hooks/scrollTop";
 
 export const ProductContext = createContext()
 function ProductProvider({ children }) {
@@ -62,7 +63,7 @@ function ProductProvider({ children }) {
         to: 0,
         from: 8
     })
-    const handleChangePage = (e, page = 1) => {
+    const handleChangePage = (e, page = 1,) => {
         const to = (page - 1) * pageSize
         const from = (page - 1) * pageSize + pageSize
         setPagination({ ...pagination, to: to, from: from })

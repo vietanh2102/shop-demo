@@ -9,6 +9,7 @@ import FilterProduct from "../../component/FilterProduct";
 import ResultFilter from "../../component/ResultFilter/ResultFilterProduct";
 import Loading from "../../component/Loading";
 import FilterResponsive from "../../component/Responsive/FilterResponsive";
+import { toTopPage } from "../../hooks/scrollTop";
 
 function tops() {
     useEffect(() => {
@@ -25,6 +26,7 @@ function tops() {
         const to = (page - 1) * pageSize
         const from = (page - 1) * pageSize + pageSize
         setPagination({ ...pagination, to: to, from: from })
+        toTopPage()
     }
     const topProduct = products.filter(item => item.category === 'top')
     const top = topProduct.slice(pagination.to, pagination.from)

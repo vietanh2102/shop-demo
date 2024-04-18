@@ -6,7 +6,7 @@ import { toTopPage } from '../hooks/scrollTop';
 
 function DefaultLayout({ children }) {
     useEffect(() => {
-        toTopPage()
+        toTopPage(0)
     })
     return (
         <div className='bg-[#F8F9FB]'>

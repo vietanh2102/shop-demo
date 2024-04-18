@@ -9,6 +9,7 @@ import ResultFilter from "../../component/ResultFilter/ResultFilterProduct";
 import img1 from "../../assets/imgTop.jpg"
 import filterimg from "../../assets/svg/filter.svg"
 import FilterResponsive from "../../component/Responsive/FilterResponsive";
+import { toTopPage } from "../../hooks/scrollTop";
 
 
 function Bottoms() {
@@ -26,6 +27,7 @@ function Bottoms() {
         const to = (page - 1) * pageSize
         const from = (page - 1) * pageSize + pageSize
         setPagination({ ...pagination, to: to, from: from })
+        toTopPage()
     }
     const menClothingBottomsTotal = products.filter((item) => item.category === "bottoms")
     const menClothingBottoms = menClothingBottomsTotal.slice(pagination.to, pagination.from)
@@ -44,7 +46,10 @@ function Bottoms() {
                     <div className="hidden lg:flex w-[300px] h-100vh">
                         <FilterProduct />
                     </div>
-                    <div className="w-full  lg:mx-[30px] pt-[71.16px] ">
+                    <div
+                        ref={ref}
+                        className="w-full  lg:mx-[30px] pt-[71.16px] "
+                    >
                         <h1 className=" font-bold text-[20px]">Quần nam</h1>
                         <div
                             className="py-[5px] px-[12px] border rounded-[7px] cursor-pointer lg:hidden"

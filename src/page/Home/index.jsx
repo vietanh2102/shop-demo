@@ -18,7 +18,7 @@ import { IsIntoView } from "../../hooks/useShow";
 function Shop() {
     const { products, loading } = useContext(ProductContext)
     // Pagination
-    const { handleChangePage, pageSize, pagination } = useContext(ProductContext)
+    const { handleChangePage, pageSize, pagination, setPagination } = useContext(ProductContext)
     const topProduct = products.filter(item => item.category === 'top')
     const tops = topProduct.slice(pagination.to, pagination.from)
     const menClothingBottomsTotal = products.filter((item) => item.category === "bottoms")
@@ -29,6 +29,10 @@ function Shop() {
     const [isViewTitle, setIsViewTitle] = useState(false)
     const [isViewImg, setIsViewImg] = useState(false)
     useEffect(() => {
+        setPagination({
+            to: 0,
+            from: 8
+        })
         const handleScroll = () => {
             IsIntoView(refTitle, setIsViewTitle)
             IsIntoView(refImg, setIsViewImg)

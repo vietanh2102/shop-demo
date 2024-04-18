@@ -3,6 +3,7 @@ export const IsIntoView = (ref, setIsIntoView) => {
     if (!rect) {
         return
     } else {
-        rect.top < window.innerHeight - 100 ? setIsIntoView(true) : setIsIntoView(false)
+        rect.top < window.innerHeight - 80 ? setIsIntoView(true) : setIsIntoView(false)
     }
 }
+

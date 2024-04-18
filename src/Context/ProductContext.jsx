@@ -74,7 +74,7 @@ function ProductProvider({ children }) {
             handleClick,
             filterProduct, setFilterProduct,
             showFilter, setShowFilter,
-            pageSize, handleChangePage, pagination
+            pageSize, handleChangePage, pagination, setPagination
         }}>
             {children}
         </ProductContext.Provider>

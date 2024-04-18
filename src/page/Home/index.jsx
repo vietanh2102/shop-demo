@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Pagination from '@mui/material/Pagination';
 import 'react-loading-skeleton/dist/skeleton.css'
 //import img
@@ -8,12 +8,13 @@ import bgImg3 from "../../assets/img/outfit3.webp"
 
 //import ProducContext
 import { ProductContext } from "../../Context/ProductContext";
-import Product from "../../component/ProductComponent/ProductComponent";
-import Loading from "../../component/Loading";
 import { Link } from "react-router-dom";
 import LoadingHome from "../../component/Loading/LoadingHome";
 import Slide from "../../component/Slide/Slice";
 import TextSale from "../../component/TextSale/TextSale";
+import TitleProduct from "./component/TitleProduct";
+import ShowProduct from "./component/ShowProduct";
+import { IsIntoView } from "../../hooks/useShow";
 function Shop() {
     const { products, loading } = useContext(ProductContext)
     // Pagination
@@ -21,29 +22,31 @@ function Shop() {
     const topProduct = products.filter(item => item.category === 'top')
     const tops = topProduct.slice(pagination.to, pagination.from)
     const menClothingBottomsTotal = products.filter((item) => item.category === "bottoms")
-    const bottoms = menClothingBottomsTotal.slice(pagination.to, pagination.from)
+    const bottoms = menClothingBottomsTotal.slice(0, 8)
+    //setShow
+    const refTitle = useRef(null)
+    const refImg = useRef(null)
+    const [isViewTitle, setIsViewTitle] = useState(false)
+    const [isViewImg, setIsViewImg] = useState(false)
+    useEffect(() => {
+        const handleScroll = () => {
+            IsIntoView(refTitle, setIsViewTitle)
+            IsIntoView(refImg, setIsViewImg)
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [])
+
     return (
         loading ? <LoadingHome /> :
             <section>
                 <Slide />
                 <TextSale />
                 <div className="mx-0 sm:mx-[30px] md:mx-[6rem] lg:mx-[6rem] xl:mx-[10rem] ">
-                    <div>
-                        <Link to={"/ao-nam"}>
-                            <button className=" text-left font-bold py-[30px] hover:text-red-500 hover:underline">
-                                Tops
-                            </button>
-                        </Link>
-                    </div>
-                    <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[30px]">
-                        {
-                            tops.map((item) => {
-                                return (
-                                    <Product key={item.id} products={item} />
-                                )
-                            })
-                        }
-                    </div>
+                    <TitleProduct path={"/ao-nam"} title={"Tops"} />
+                    <ShowProduct productList={tops} />
                     <div className="my-[20px] flex justify-center">
                         <Pagination
                             count={Math.ceil(topProduct.length / pageSize)}
@@ -55,36 +58,40 @@ function Shop() {
                 {/* {OutFit} */}
                 <div className="my-[30px] shadow">
                     <div className="px-[50px] bg-[#f1f1f1] pt-[30]">
-                        <div className="pt-[40px] pb-[30px]">
+                        <div
+                            ref={refTitle}
+                            className={`pt-[40px] pb-[30px] duration-[600ms] ${isViewTitle ? 'translate-y-0 opacity-1' : 'translate-y-[80px] opacity-0'}`}
+                        >
                             <span className=" text-[37px] font-bold">
                                 OUTFIX OF THE DAY
                             </span>
                         </div>
                         <div className="grid grid-cols-3 gap-x-[30px] pb-[40px]">
-                            <img src={bgImg1} alt="err" />
-                            <img src={bgImg2} alt="err" />
-                            <img src={bgImg3} alt="err" />
+                            <img
+                                className={`duration-[800ms] ${isViewImg ? 'translate-x-0 opacity-1' : 'translate-x-[-80px] opacity-0'}`}
+                                ref={refImg}
+                                src={bgImg1}
+                                alt="err"
+                            />
+                            <img
+                                className={`duration-[800ms] ${isViewImg ? 'translate-y-0 opacity-1' : 'translate-y-[-80px] opacity-0'}`}
+                                ref={refImg}
+                                src={bgImg2}
+                                alt="err"
+                            />
+                            <img
+                                className={`duration-[800ms] ${isViewImg ? 'translate-x-0 opacity-1' : 'translate-x-[80px] opacity-0'}`}
+                                ref={refImg}
+                                src={bgImg3}
+                                alt="err"
+                            />
                         </div>
                     </div>
                 </div>
                 {/* {Bottoms} */}
                 <div className="mx-0 sm:mx-[30px] md:mx-[6rem] lg:mx-[6rem] xl:mx-[10rem] ">
-                    <div>
-                        <Link to={"/quan-nam"}>
-                            <button className=" text-left font-bold pb-[30px] hover:text-red-500 hover:underline">
-                                Bottom
-                            </button>
-                        </Link>
-                    </div>
-                    <div className=" w-full grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-[30px] mx-auto">
-                        {
-                            bottoms.map((item) => {
-                                return (
-                                    <Product key={item.id} products={item} />
-                                )
-                            })
-                        }
-                    </div>
+                    <TitleProduct path={"/quan-nam"} title={"Bottoms"} />
+                    <ShowProduct productList={bottoms} />
                     <div className="my-[20px] flex justify-center w-full">
                         <Link to={'/quan-nam'}>
                             <button

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
 
 function Product({ products }) {
     const Show = () => {

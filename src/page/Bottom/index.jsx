@@ -18,10 +18,10 @@ function Bottoms() {
     }, [])
     const { loading, products, showFilter, setShowFilter } = useContext(ProductContext)
     //Pagination
-    const pageSize = 8
+    const pageSize = window.innerWidth > 1024 ? 8 : 6
     const [pagination, setPagination] = useState({
         to: 0,
-        from: 8
+        from: pageSize
     })
     const handleChangePage = (e, page = 1) => {
         const to = (page - 1) * pageSize
@@ -47,7 +47,6 @@ function Bottoms() {
                         <FilterProduct />
                     </div>
                     <div
-                        ref={ref}
                         className="w-full  lg:mx-[30px] pt-[71.16px] "
                     >
                         <h1 className=" font-bold text-[20px]">Quần nam</h1>

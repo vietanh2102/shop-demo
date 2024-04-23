@@ -9,7 +9,7 @@ function DefaultLayout({ children }) {
         toTopPage(0)
     })
     return (
-        <div className='bg-[#F8F9FB]'>
+        <div className='bg-[#F8F9FB] overflow-hidden'>
             <Header />
             <div className='mt-[100px]'>
                 <div>{children}</div>

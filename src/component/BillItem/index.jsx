@@ -8,7 +8,7 @@ function BillItem({ item }) {
                 <div className="col-span-9 md:flex text-left p-[5px]">
                     <div className="max-w-[100px]">
                         <Link to={`/product/${item.id}`}>
-                            <img src={item.image} alt="err" />
+                            <img src={item.image[0]} alt="err" />
                         </Link>
                     </div>
                     <div className="ml-[5px]">

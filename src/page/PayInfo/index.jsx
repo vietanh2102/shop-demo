@@ -3,36 +3,38 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import BillItem from "../../component/BillItem";
 import { Link } from "react-router-dom";
+import Input from "./component/input";
 
 function PayInfo() {
     const { cart, totalCost, itemAmount } = useContext(CartContext)
-    console.log(cart);
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [address, setAddress] = useState('')
+    const [formData, setFormData] = useState({
+        name: undefined,
+        phone: undefined,
+        email: undefined,
+        address: undefined,
+    })
     const handleChangeName = e => {
         const name = e.target.value
         if (!name.startsWith(' ')) {
-            setName(name)
+            setFormData({ ...formData, name: name })
         }
     }
     const handleChangePhone = e => {
         const phone = e.target.value
         if (!phone.startsWith(' ')) {
-            setPhone(phone)
+            setFormData({ ...formData, phone: phone })
         }
     }
     const handleChangeEmail = e => {
         const email = e.target.value
         if (!email.startsWith(' ')) {
-            setEmail(email)
+            setFormData({ ...formData, email: email })
         }
     }
     const handleChangeAddress = e => {
         const address = e.target.value
         if (!address.startsWith(' ')) {
-            setAddress(address)
+            setFormData({ ...formData, address: address })
         }
     }
     const api = "https://yymyxn-8080.csb.app/data"
@@ -49,14 +51,7 @@ function PayInfo() {
             .then(callback)
     }
     const handleClick = () => {
-        const formData = {
-            name: name,
-            phone: phone,
-            email: email,
-            address: address,
-            cart: cart,
-            totalCost: totalCost
-        }
+        const { name, phone, email, address } = formData
         if (name && phone && email && address) {
             if (itemAmount !== 0) {
                 postData(formData)
@@ -67,54 +62,21 @@ function PayInfo() {
         } else {
             alert('Quý khách vui long điền đầy đủ thông tin')
         }
-        setAddress('')
-        setEmail('')
-        setName('')
-        setPhone('')
+        setFormData({
+            name: undefined,
+            phone: undefined,
+            email: undefined,
+            address: undefined,
+        })
     }
     return (
         <div className="h-full lg:grid lg:grid-cols-3">
             <div className="col-span-2 lg:pr-[100px] lg:border-r py-[50px]">
                 <span className=" font-bold px-[30px]">Thông tin nhận hàng</span>
-                <div className="mx-[50px] my-[20px]">
-                    <TextField
-                        fullWidth
-                        id="outline-basic"
-                        size="small" label="Họ tên"
-                        value={name}
-                        onChange={handleChangeName}
-                    />
-                </div>
-
-                <div className="mx-[50px] my-[20px]">
-                    <TextField
-                        fullWidth
-                        id="outline-basic"
-                        size="small" label="SĐT"
-                        value={phone}
-                        onChange={handleChangePhone}
-                    />
-                </div>
-
-                <div className="mx-[50px] my-[20px]">
-                    <TextField
-                        fullWidth
-                        id="outline-basic"
-                        size="small" label="Email"
-                        value={email}
-                        onChange={handleChangeEmail}
-                    />
-                </div>
-
-                <div className="mx-[50px] my-[20px]">
-                    <TextField
-                        fullWidth
-                        id="outline-basic"
-                        size="small" label="Địa chỉ"
-                        value={address}
-                        onChange={handleChangeAddress}
-                    />
-                </div>
+                <Input lable="Họ tên" value={formData.name} handleChange={handleChangeName} />
+                <Input lable="SDT" value={formData.phone} handleChange={handleChangePhone} />
+                <Input lable="Email" value={formData.email} handleChange={handleChangeEmail} />
+                <Input lable="Địa chỉ" value={formData.address} handleChange={handleChangeAddress} />
             </div>
             <div className=" bg-[#fafafa]  lg:mx-0 w-full lg:py-[50px] py-[20px]">
                 <span className=" font-bold text-xl p-[30px]">

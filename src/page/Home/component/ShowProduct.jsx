@@ -4,7 +4,7 @@ import { IsIntoView } from "../../../hooks/useShow";
 
 function ShowProduct({ productList }) {
     const ref = useRef(null)
-    const [isViewProduct, setIsViewProduct] = useState(false)
+    const [isViewProduct, setIsViewProduct] = useState(true)
     useEffect(() => {
         const handleScroll = () => {
             IsIntoView(ref, setIsViewProduct)

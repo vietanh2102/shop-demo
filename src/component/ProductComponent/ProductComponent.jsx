@@ -5,13 +5,18 @@ function Product({ products }) {
         const { id, image, title } = products;
         const price = Number(products.price)
         return (
-            <div className=" overflow-hidden  relative group shadow rounded-[4px] bg-white hover:translate-y-[-20px] duration-300">
-                <h1 className="w-[100px] text-[14px] px-[6px] py-[8px] h-auto  bg-pink text-white"> New Arrival</h1>
+            <div className=" overflow-hidden  relative group  hover:translate-y-[-20px] duration-300 z-50">
+
+                <ul className=" w-2/3 md:w-[95px] text-[13px] text-white bg-pink list-none">
+                    <li className=" px-[10px] mr-[5px] mb-[5px]">
+                        New Arrival
+                    </li>
+                </ul>
                 <div className="w-full flex justify-center items-center  h-auto">
                     {/* {img} */}
                     <div className=" flex justify-center items-center ">
                         <Link to={`/product/${id}`}>
-                            <img className=" max-h-[139px] w-full xl:max-h-[208px] mt-[20px] hover:scale-105 transition duration-300" src={image[0]} alt="" />
+                            <img className=" max-h-[139px] w-full xl:max-h-[208px]  hover:scale-105 transition duration-300" src={image[0]} alt="" />
                         </Link>
                     </div>
                 </div>

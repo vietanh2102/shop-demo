@@ -58,10 +58,10 @@ function ProductProvider({ children }) {
         }
     }
     // Pagination
-    const pageSize = 8
+    const pageSize = window.innerWidth > 1024 ? 8 : 6
     const [pagination, setPagination] = useState({
         to: 0,
-        from: 8
+        from: pageSize
     })
     const handleChangePage = (e, page = 1,) => {
         const to = (page - 1) * pageSize

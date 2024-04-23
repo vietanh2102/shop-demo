@@ -5,7 +5,7 @@ function Product({ products }) {
         const { id, image, title } = products;
         const price = Number(products.price)
         return (
-            <div className=" overflow-hidden  relative group  hover:translate-y-[-20px] duration-300 z-50">
+            <div className=" overflow-hidden  relative group  hover:translate-y-[-20px] duration-300 ">
 
                 <ul className=" w-2/3 md:w-[95px] text-[13px] text-white bg-pink list-none">
                     <li className=" px-[10px] mr-[5px] mb-[5px]">
